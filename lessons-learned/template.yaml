@@ -1,0 +1,92 @@
+# Lessons Learned Template
+
+# Copy this file when capturing learnings after completing a task
+
+task_id: "TP-YYYY-NNN"
+task_name: "Brief task description"
+completion_date: "YYYY-MM-DD"
+product: "pillarworks|triora|orryx|orryx-flow|multi-product"
+agent: "executor|security-reviewer|qa-reviewer|architecture-reviewer"
+
+## Context
+# What was the task trying to accomplish?
+# What was the starting state?
+
+## What Went Well
+# Patterns that worked
+# Tools that were effective
+# Approaches that saved time
+
+patterns_discovered:
+  - pattern_name: "Name of reusable pattern"
+    description: "What it does"
+    when_to_use: "Scenarios where this applies"
+    implementation: "Key implementation details"
+    example_code: "Link to code or inline snippet"
+
+## Challenges Encountered
+# Problems faced during execution
+# Blockers or obstacles
+
+issues_encountered:
+  - issue: "Description of the problem"
+    impact: "How it affected the task"
+    resolution: "How it was resolved"
+    time_lost: "Estimated time impact"
+
+## Improvements Suggested
+# What could be better next time
+# Process improvements
+# Tool enhancements
+# Documentation gaps
+
+improvements:
+  - area: "testing|deployment|documentation|tooling|standards"
+    suggestion: "Specific improvement"
+    rationale: "Why this would help"
+    effort: "low|medium|high"
+    priority: "low|medium|high|critical"
+
+## Anti-Patterns Identified
+# Mistakes made that should be avoided in future
+
+anti_patterns:
+  - anti_pattern: "What was done incorrectly"
+    why_wrong: "Why this is problematic"
+    correct_approach: "What should be done instead"
+    risk_level: "low|medium|high|critical"
+
+## Metrics
+# Quantitative data about the task
+
+execution_time: "hours"
+test_coverage_achieved: "percentage"
+bugs_found_in_review: "number"
+iterations_required: "number"
+confidence_score: "0.0-1.0"
+
+## Knowledge Updates Required
+# What documentation should be updated based on this learning
+
+documentation_updates:
+  - repo: "orryx-knowledge|orryx-standards|orryx-governance"
+    file: "path/to/file.md"
+    update_type: "new|update|deprecate"
+    description: "What needs to change"
+
+## References
+# Links to related materials
+# PR numbers
+# Related tasks
+# External documentation
+
+references:
+  - type: "pr|task|docs|pattern"
+    link: "URL or identifier"
+    description: "What this reference provides"
+
+## Reviewer Notes
+# Feedback from human review (if applicable)
+
+reviewer_feedback: |
+  [Optional section for human reviewer comments]
