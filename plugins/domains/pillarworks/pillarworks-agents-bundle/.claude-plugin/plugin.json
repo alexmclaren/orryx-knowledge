@@ -1,0 +1,11 @@
+{
+  "name": "pillarworks-agents-bundle",
+  "description": "Reference agent bundle for Pillarworks: 11 Claude YAMLs + 2 ChatGPT verifier configs + shared handoff-protocol. Template for product-specific agent bundles.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain": "pillarworks"
+}

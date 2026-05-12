@@ -1,0 +1,10 @@
+{
+  "name": "spec-driven-delivery",
+  "description": "Spec-driven delivery pipeline (brainstorming -> spec -> plan -> exec -> review). Triggers on substantial features, refactors, or anything that needs alignment before code. Merges Triora sprint workflows, Pillarworks SPRINT pattern, crash-repair-template architecture/decisions, and reality-check Spec ST-001 (acceptance-criteria-first). Distinct from bmad-planning (which is for greenfield).",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

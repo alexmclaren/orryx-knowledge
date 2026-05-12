@@ -1,0 +1,10 @@
+{
+  "name": "fix-issue",
+  "description": "Issue-to-PR workflow. Triggers on /fix-issue, \"fix bug #N\", \"address this Sentry alert\". Promoted from Triora SKILL.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

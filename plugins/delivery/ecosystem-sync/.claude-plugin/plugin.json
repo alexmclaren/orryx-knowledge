@@ -1,0 +1,10 @@
+{
+  "name": "ecosystem-sync",
+  "description": "Sync cross-product state. Triggers on /ecosystem-sync, \"what is everyone working on\", \"cross-product status\".",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

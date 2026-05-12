@@ -1,0 +1,10 @@
+{
+  "name": "deploy-check",
+  "description": "Pre-deploy verification. Triggers on /deploy-check, \"ready to ship\", \"verify before deploy\". Merges Brain + Triora + Pillarworks ops-auto patterns.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

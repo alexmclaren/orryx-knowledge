@@ -1,0 +1,13 @@
+{
+  "name": "orryx-risk-compliance-mcp",
+  "description": "Risk + compliance domain MCP. Endpoints for /log-audit-event, /check-compliance-control, /compute-risk-score, /list-active-controls, /sync-vendor-status. Reference implementation lifted from the most-documented domain stub (audit Wave 0 finding).",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain_mcp": true,
+  "domain": "risk-compliance",
+  "port": 9001
+}

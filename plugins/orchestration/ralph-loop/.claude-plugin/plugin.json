@@ -1,0 +1,10 @@
+{
+  "name": "ralph-loop",
+  "description": "Ralph loop pattern for autonomous development with context engineering. Triggers on \"use ralph\", \"/ralph-loop\", \"loop until done\", \"autonomous-run this\", or any large autonomous delivery. Geoffrey-Huntley pattern — fresh context each iteration, spec drives convergence, quality gates control exit. Used in Triora for greenfield features and complex refactors.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

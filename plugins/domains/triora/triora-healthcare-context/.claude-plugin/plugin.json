@@ -1,0 +1,11 @@
+{
+  "name": "triora-healthcare-context",
+  "description": "Australian healthcare regulations + PHI handling rules + clinical safety constraints for Triora. Triggers when working on clinical trial matching, patient data, or anything PHI-adjacent. Production-grade.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain": "triora"
+}

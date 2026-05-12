@@ -1,0 +1,730 @@
+{
+  "name": "orryx-group",
+  "owner": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "metadata": {
+    "description": "Cross-cutting Claude Code plugins for the Orryx Group — foundation, methodology, orchestration, delivery, persistent-agent, vertical-template patterns. Domain plugins are currently staged here; they migrate to their owning entity repos in a follow-up rollout per `MIGRATION-TARGET.md`.",
+    "version": "0.2.0",
+    "homepage": "https://github.com/alexmclaren/orryx-knowledge",
+    "license": "MIT"
+  },
+  "plugins": [
+    {
+      "name": "asset-index",
+      "description": "Check-before-create discipline. Triggers before authoring a new skill, agent, prompt, slash command, hook, or shared schema. Consults the repo-local ASSET_INDEX.md to prevent duplication; lifted from Pillarworks's mature pattern. Reduces \"we already have one of these\" rework and keeps cross-product coordination cheaper.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/foundation/asset-index"
+      },
+      "layer": "foundation"
+    },
+    {
+      "name": "cross-model-verification",
+      "description": "Cross-model verification protocol for high-risk code. Triggers when authoring or reviewing code in categories prone to subtle errors (regex, async / concurrency, security-sensitive code, database migrations, edge-case-heavy parsing). Defines when to verify Claude output with a non-Claude model (ChatGPT, Gemini), the handoff-protocol YAML schema, and how to interpret verification results. Lifted from Pillarworks's 2-verifier pattern.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/foundation/cross-model-verification"
+      },
+      "layer": "foundation"
+    },
+    {
+      "name": "mcp-builder",
+      "description": "Authors new MCP servers for the Orryx Group using @orryx/core's DomainMcpBase. Triggers on requests to build an MCP server, add an MCP integration, scaffold a service-domain MCP, or \"how do I make an MCP server\". Enforces the verb-noun endpoint convention and audit-event schema lifted from orryx-risk-compliance design.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/foundation/mcp-builder"
+      },
+      "layer": "foundation"
+    },
+    {
+      "name": "model-tiering-convention",
+      "description": "Model tiering convention for Orryx Group agents and subagents. Triggers when authoring a new subagent, configuring an agent's model, or deciding which model tier to use for a task. Defines haiku (explorer with permissionMode plan, doc-writer), sonnet (code-reviewer, test-writer, migration-writer, default delivery), and opus (security-reviewer, pr-investigator, deep-research, high-stakes review). Canonical Orryx convention; lifted from Triora.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/foundation/model-tiering-convention"
+      },
+      "layer": "foundation"
+    },
+    {
+      "name": "plan-mode-first",
+      "description": "Plan-mode-first discipline for non-trivial work. Triggers at the start of any task that modifies code, infrastructure, or shared docs. Defines when plan mode is mandatory, what counts as exempt (trivial reads, doc fixes, emergency hotfixes), and how autonomous-within-plan operation works. Harmonised from Triora, Pillarworks, and Orryx Brain Section 0 patterns.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/foundation/plan-mode-first"
+      },
+      "layer": "foundation"
+    },
+    {
+      "name": "safety-hooks-base",
+      "description": "Universal Claude Code safety hooks for the Orryx Group. Triggers when setting up a new repo's .claude/settings.json, when reviewing existing hook configurations, or when secret leakage / dangerous bash patterns need to be blocked at the tool-call boundary. Installs PreToolUse bash blocklist, PostToolUse file blocklist (.env / .pem / terraform.tfstate / *-accessKeys.csv), and UserPromptSubmit safety-policy check.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/foundation/safety-hooks-base"
+      },
+      "layer": "foundation"
+    },
+    {
+      "name": "skill-creator",
+      "description": "Authors new Claude Code skills following Orryx Group conventions. Triggers on requests to create a new skill, add a SKILL.md, build a skill for X, or \"how do I make a skill\". Covers frontmatter structure, when_to_use phrasing, model tier declaration, ASSET_INDEX.md registration, and the references/ subdirectory pattern.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/foundation/skill-creator"
+      },
+      "layer": "foundation"
+    },
+    {
+      "name": "bmad-planning",
+      "description": "BMAD planning workflow (Brief, Model, Architect, Develop). Triggers on greenfield feature work, product discovery, or \"let's design X\". Produces a PRD and Tech Spec before any implementation. Pattern adopted by Pillarworks from bmad-code-org; promoted to Orryx cross-cutting.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/methodology/bmad-planning"
+      },
+      "layer": "methodology"
+    },
+    {
+      "name": "code-review",
+      "description": "Two-stage code review (sonnet then opus for high-risk) with skill + subagent + slash-command surfaces. Triggers on review requests, pre-merge checks, \"review this PR / diff / branch\", or as the final step of plan-and-execute. Merges Triora code-reviewer + merge-review, Pillarworks review SKILL + reviewer + quality-gate agents, and Brain /review command.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/methodology/code-review"
+      },
+      "layer": "methodology"
+    },
+    {
+      "name": "plan-and-execute",
+      "description": "Plan + execute discipline with explicit checkpoints. Triggers on multi-step delivery work, any task estimated at >30 minutes, or when the user says \"implement X\" / \"build Y\" / \"ship Z\". Produces a short plan first, executes with checkpoint after each step, ends with end-of-task reflection. Lifted from Pillarworks SKILL; promoted to cross-cutting.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/methodology/plan-and-execute"
+      },
+      "layer": "methodology"
+    },
+    {
+      "name": "spec-driven-delivery",
+      "description": "Spec-driven delivery pipeline (brainstorming -> spec -> plan -> exec -> review). Triggers on substantial features, refactors, or anything that needs alignment before code. Merges Triora sprint workflows, Pillarworks SPRINT pattern, crash-repair-template architecture/decisions, and reality-check Spec ST-001 (acceptance-criteria-first). Distinct from bmad-planning (which is for greenfield).",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/methodology/spec-driven-delivery"
+      },
+      "layer": "methodology"
+    },
+    {
+      "name": "systematic-debugging",
+      "description": "Four-phase systematic debugging (reproduce, isolate, hypothesise, fix). Triggers on bug reports, test failures, error messages, \"X is broken / not working / failing\", \"why is X happening\", or production incident triage. Production-reality-first; verifies hypotheses against the running system before changing code. Replaces \"guess and check\" debugging.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/methodology/systematic-debugging"
+      },
+      "layer": "methodology"
+    },
+    {
+      "name": "tdd-discipline",
+      "description": "Test-driven development discipline (red-green-refactor). Triggers when authoring new functionality or fixing bugs. Enforces failing test first, minimal code to pass, then refactor. Pairs with the test-writer subagent (sonnet tier). Used by Triora's test-writer + migration-writer agents and Pillarworks tester agent.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/methodology/tdd-discipline"
+      },
+      "layer": "methodology"
+    },
+    {
+      "name": "3-lane-parallel",
+      "description": "Three-lane parallel execution pattern for the Orryx Group (Brain + Triora + Pillarworks lanes coordinated by SYNC_STATE + CONTROL_STATE). Triggers on cross-product Sprint planning, \"what should each product team do this sprint\", \"coordinate the lanes\", or \"/3-lane-parallel\". Originally Brain Sprint 28 pattern; promoted to cross-cutting.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/orchestration/3-lane-parallel"
+      },
+      "layer": "orchestration"
+    },
+    {
+      "name": "agent-swarming",
+      "description": "Multi-agent collaboration patterns + agent roles + swarming protocols + cross-model verification for Orryx Group development. Triggers on multi-agent task design, \"spawn agents\", \"parallelise this work\", or planning a complex delivery. Canonical Orryx pattern; lifted from Triora.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/orchestration/agent-swarming"
+      },
+      "layer": "orchestration"
+    },
+    {
+      "name": "cpd-protocol",
+      "description": "Continuous Parallel Development (CPD) protocol with 5 parallel work streams (Research, Discovery, Planning, Development, Review). Triggers on Sprint planning, \"run in parallel\", \"parallelise the work\", or \"what should each lane do\". Defines mandatory parallel agents per sprint start, execution patterns, and research queue management. Lifted from Triora.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/orchestration/cpd-protocol"
+      },
+      "layer": "orchestration"
+    },
+    {
+      "name": "git-worktrees",
+      "description": "Parallel isolated workspaces via git worktrees. Triggers on \"multi-terminal\", \"parallel work\", \"worktree\", \"I need a clean branch without losing my current state\", or coordinating multiple Claude Code sessions on the same repo. Merges Brain active-worktrees pattern + Pillarworks .claude/worktrees workflow.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/orchestration/git-worktrees"
+      },
+      "layer": "orchestration"
+    },
+    {
+      "name": "ralph-loop",
+      "description": "Ralph loop pattern for autonomous development with context engineering. Triggers on \"use ralph\", \"/ralph-loop\", \"loop until done\", \"autonomous-run this\", or any large autonomous delivery. Geoffrey-Huntley pattern — fresh context each iteration, spec drives convergence, quality gates control exit. Used in Triora for greenfield features and complex refactors.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/orchestration/ralph-loop"
+      },
+      "layer": "orchestration"
+    },
+    {
+      "name": "scheduled-execution",
+      "description": "Three-tier scheduled execution model for Claude Code (cloud Routines, local persistent Desktop tasks, session-scoped /loop). Triggers on \"run this every day\", \"schedule X\", \"automate the audit\", \"make this recurring\", or any periodic-execution need. Built from reality-check Spec ST-001 framing + the architecture brief's three-tier model.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/orchestration/scheduled-execution"
+      },
+      "layer": "orchestration"
+    },
+    {
+      "name": "service-domain-map",
+      "description": "Cross-product orchestration map for the Orryx Group. Triggers on \"what does X depend on\", \"which MCP should I call for Y\", \"/SERVICE_DOMAIN_MAP\", or any question about which service-domain MCP serves which capability across products. Materialises the implicit cross-repo map from Brain into a single maintained doc.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/orchestration/service-domain-map"
+      },
+      "layer": "orchestration"
+    },
+    {
+      "name": "credential-audit",
+      "description": "Scans repos for committed secrets, expired API keys, hardcoded credentials. Triggers on /credential-audit, \"audit my secrets\", \"check for leaked keys\". Promoted from Brain slash command.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/credential-audit"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "deploy-check",
+      "description": "Pre-deploy verification. Triggers on /deploy-check, \"ready to ship\", \"verify before deploy\". Merges Brain + Triora + Pillarworks ops-auto patterns.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/deploy-check"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "deploy-to-vercel",
+      "description": "Vercel deployment workflow. Triggers on \"deploy to Vercel\", \"preview deploy\", \"promote to production\". Lifted from Directors Portal extract; entity-agnostic.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/deploy-to-vercel"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "docs-pack",
+      "description": "Creates a documentation outline with concise summary, ready for team sharing. Triggers on /docs-pack, \"package this for the team\", \"make a brief for X\". Lifted from Pillarworks SKILL.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/docs-pack"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "ecosystem-sync",
+      "description": "Sync cross-product state. Triggers on /ecosystem-sync, \"what is everyone working on\", \"cross-product status\".",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/ecosystem-sync"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "fix-issue",
+      "description": "Issue-to-PR workflow. Triggers on /fix-issue, \"fix bug #N\", \"address this Sentry alert\". Promoted from Triora SKILL.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/fix-issue"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "magic-patterns-design",
+      "description": "Magic Patterns design pipeline. Triggers on \"scaffold a new design\", \"use Magic Patterns to prototype X\", or starting a new brand/landing variant.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/magic-patterns-design"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "onboard",
+      "description": "Onboarding workflow for new contributors. Triggers on /onboard, \"new dev getting started\", \"show me the ropes\". Promoted from Triora SKILL.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/onboard"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "pr-investigate",
+      "description": "Cross-PR root-cause investigation (opus tier). Triggers on /pr-investigate, \"why did X break\", \"find when Y was introduced\". Promoted from Triora SKILL.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/pr-investigate"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "quality-check",
+      "description": "Run lint + type-check + test suite + coverage report. Triggers on /quality-check, \"run quality gates\", \"ready for review\". Merges Triora quality-check + Pillarworks quality-gate agent.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/quality-check"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "reality-check",
+      "description": "Operational health audit (deps, CVEs, README staleness, secret leakage, dead-code heuristics). Triggers on /reality-check, \"audit the repos\", \"check group health\". Promoted from D:\\Orryx\\reality-check.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/reality-check"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "refactor",
+      "description": "Structured refactor workflow (test-first, smaller-steps, no behaviour change). Triggers on /refactor, \"refactor this\", \"clean up X\". Promoted from Triora SKILL.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/refactor"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "release-notes",
+      "description": "Generate user-facing release notes from a git range or PR list. Triggers on /release-notes, \"what shipped this week\", \"draft a changelog\". Promoted from Triora SKILL.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/release-notes"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "security-audit",
+      "description": "Runs a security review of a branch / PR / diff. Triggers on /security-audit, \"review for security\", \"is this safe to deploy\". Combines opus security-reviewer subagent + Brain slash command pattern.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/security-audit"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "sprint-plan",
+      "description": "Generate a sprint plan. Triggers on /sprint-plan, \"plan next sprint\", \"what should we work on\". Merges Triora sprint-plan + Pillarworks SPRINT pattern.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/sprint-plan"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "sync-docs",
+      "description": "Sync local repo docs (README, CHANGELOG, ADRs) with canonical sources in orryx-knowledge / orryx-standards. Triggers on /sync-docs, \"fix doc drift\", \"is my README current\".",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/sync-docs"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "sync-notion",
+      "description": "Bidirectional sync of project state to Notion (sprint docs, ADRs, decisions). Triggers on /sync-notion, \"push to Notion\", \"sync my docs\". Promoted from Brain slash command.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/sync-notion"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "vercel-composition-patterns",
+      "description": "Vercel composition patterns. Triggers on architecture questions for Vercel-hosted apps. Lifted from Directors Portal extract; entity-agnostic.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/vercel-composition-patterns"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "vercel-react-best-practices",
+      "description": "React best practices in Vercel context (RSC, app router, suspense). Lifted from Directors Portal extract.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/vercel-react-best-practices"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "vercel-react-native-skills",
+      "description": "Vercel + React Native cross-platform patterns. Lifted from Directors Portal extract.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/vercel-react-native-skills"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "web-design-guidelines",
+      "description": "Web design guidelines for Orryx Group brand consistency. Lifted from Directors Portal extract.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/delivery/web-design-guidelines"
+      },
+      "layer": "delivery"
+    },
+    {
+      "name": "cross-entity-protocol",
+      "description": "Cross-entity business-setup protocol for the Orryx Group. Triggers on \"set up X for the Orryx Group\", \"onboard a new entity\", \"what do I need to coordinate across Triora and Pillarworks\", or any work that touches multiple entities at once. Defines the canonical setup checklist + state hand-off pattern. Lifted from claw-memory ORRYX_TRIORA_BUSINESS_SETUP.md.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/persistent-agent/cross-entity-protocol"
+      },
+      "layer": "persistent-agent"
+    },
+    {
+      "name": "inbox-automation",
+      "description": "Gmail + Outlook365 inbox automation patterns (cleanup, sort, archive, financial-account protection). Triggers on \"clean up my inbox\", \"process emails\", \"automate email triage\", or any inbox-management ask. Lifted from claw-memory PowerShell + Node scripts. Sensitive — install only after confirming personal-automation posture and OAuth scopes.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/persistent-agent/inbox-automation"
+      },
+      "layer": "persistent-agent"
+    },
+    {
+      "name": "persistent-memory-template",
+      "description": "Persistent-agent template using the file-as-memory sextet (SOUL.md, IDENTITY.md, MEMORY.md, HEARTBEAT.md, USER.md, TOOLS.md). Triggers on \"set up a persistent agent\", \"give this agent memory\", \"make this agent stateful\", or any agent that needs to remember across sessions. Lifted from claw-memory; promoted in Wave 7.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/persistent-agent/persistent-memory-template"
+      },
+      "layer": "persistent-agent"
+    },
+    {
+      "name": "orryx-accounting-mcp",
+      "description": "Accounting domain MCP. Endpoints for /create-invoice, /log-time-entry, /compute-revenue, /list-outstanding-receivables, /sync-stripe-state.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/mcp-servers/orryx-accounting-mcp"
+      },
+      "layer": "mcp-servers"
+    },
+    {
+      "name": "orryx-ai-automation-mcp",
+      "description": "AI automation domain MCP. Endpoints for /run-workflow, /list-active-jobs, /log-execution-event, /compute-cost-estimate, /sync-workflow-status.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/mcp-servers/orryx-ai-automation-mcp"
+      },
+      "layer": "mcp-servers"
+    },
+    {
+      "name": "orryx-hr-mcp",
+      "description": "HR domain MCP. Endpoints for /get-employee-record, /list-active-projects, /log-time-entry, /compute-cost-allocation, /sync-payroll-state.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/mcp-servers/orryx-hr-mcp"
+      },
+      "layer": "mcp-servers"
+    },
+    {
+      "name": "orryx-risk-compliance-mcp",
+      "description": "Risk + compliance domain MCP. Endpoints for /log-audit-event, /check-compliance-control, /compute-risk-score, /list-active-controls, /sync-vendor-status. Reference implementation lifted from the most-documented domain stub (audit Wave 0 finding).",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/mcp-servers/orryx-risk-compliance-mcp"
+      },
+      "layer": "mcp-servers"
+    },
+    {
+      "name": "orryx-security-mcp",
+      "description": "Security domain MCP. Endpoints for /check-vulnerability, /sync-incident-state, /log-security-event, /list-active-threats, /compute-security-score.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/mcp-servers/orryx-security-mcp"
+      },
+      "layer": "mcp-servers"
+    },
+    {
+      "name": "brain-3-lane-orchestration",
+      "description": "Three-lane parallel orchestration (Brain + Triora + Pillarworks) via SYNC_STATE + CONTROL_STATE. Brain-specific overrides on top of cross-cutting orchestration/3-lane-parallel.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/domains/brain/brain-3-lane-orchestration"
+      },
+      "layer": "domain-brain",
+      "staged": true,
+      "production_target": {
+        "name": "Orryx Group",
+        "url": "https://orryx.dev"
+      }
+    },
+    {
+      "name": "brain-ecosystem-config",
+      "description": "Cross-product ecosystem configuration management for Brain. Triggers on cross-product config changes.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/domains/brain/brain-ecosystem-config"
+      },
+      "layer": "domain-brain",
+      "staged": true,
+      "production_target": {
+        "name": "Orryx Group",
+        "url": "https://orryx.dev"
+      }
+    },
+    {
+      "name": "crash-repair-vertical-template",
+      "description": "First instance of the vertical-industry-setup template framework. Crash-repair-specific: agents/, prompts/, standards/, architecture/{decisions,schemas}/. Reusable scaffold for industry-specific Claude setups.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/domains/crash-repair-template/crash-repair-vertical-template"
+      },
+      "layer": "domain-crash-repair-template",
+      "staged": true,
+      "production_target": {
+        "name": "Orryx Group",
+        "url": "https://orryx.dev"
+      }
+    },
+    {
+      "name": "directors-portal-ui-ux",
+      "description": "UI/UX patterns for the Directors Portal (Vercel + React + RSC + tenant-isolated dashboard). Lifted from D:\\orryx-brain\\clients\\directors-portal\\.claude\\skills\\ui-ux-pro-max.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/domains/directors-portal/directors-portal-ui-ux"
+      },
+      "layer": "domain-directors-portal",
+      "staged": true,
+      "production_target": {
+        "name": "Orryx Group",
+        "url": "https://orryx.dev"
+      }
+    },
+    {
+      "name": "flow-clinical-workflows",
+      "description": "Clinical workflow patterns. Triggers on clinic-operations work (intake, triage, charting, billing handoff).",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/domains/flow/flow-clinical-workflows"
+      },
+      "layer": "domain-flow",
+      "staged": true,
+      "production_target": {
+        "name": "Orryx Group",
+        "url": "https://orryx.dev"
+      }
+    },
+    {
+      "name": "flow-phi-exposure",
+      "description": "PHI exposure audit slash command for Orryx Flow (/audit-phi-exposure). Triggers when reviewing PHI-handling code in clinical workflow operations.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/domains/flow/flow-phi-exposure"
+      },
+      "layer": "domain-flow",
+      "staged": true,
+      "production_target": {
+        "name": "Orryx Group",
+        "url": "https://orryx.dev"
+      }
+    },
+    {
+      "name": "flow-tenant-security",
+      "description": "Multi-tenant security validation for Orryx Flow (/validate-tenant-security). Triggers when reviewing tenant isolation in clinic-operations features.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/domains/flow/flow-tenant-security"
+      },
+      "layer": "domain-flow",
+      "staged": true,
+      "production_target": {
+        "name": "Orryx Group",
+        "url": "https://orryx.dev"
+      }
+    },
+    {
+      "name": "pillarworks-agents-bundle",
+      "description": "Reference agent bundle for Pillarworks: 11 Claude YAMLs + 2 ChatGPT verifier configs + shared handoff-protocol. Template for product-specific agent bundles.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/domains/pillarworks/pillarworks-agents-bundle"
+      },
+      "layer": "domain-pillarworks",
+      "staged": true,
+      "production_target": {
+        "name": "Orryx Group",
+        "url": "https://orryx.dev"
+      }
+    },
+    {
+      "name": "pillarworks-domain-check",
+      "description": "Construction domain wording consistency and estimation safety check for Pillarworks BOQ automation.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/domains/pillarworks/pillarworks-domain-check"
+      },
+      "layer": "domain-pillarworks",
+      "staged": true,
+      "production_target": {
+        "name": "Orryx Group",
+        "url": "https://orryx.dev"
+      }
+    },
+    {
+      "name": "triora-document-library",
+      "description": "Complete document library index for Triora. Triggers on \"where is X documented\" within Triora.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/domains/triora/triora-document-library"
+      },
+      "layer": "domain-triora",
+      "staged": true,
+      "production_target": {
+        "name": "Orryx Group",
+        "url": "https://orryx.dev"
+      }
+    },
+    {
+      "name": "triora-healthcare-context",
+      "description": "Australian healthcare regulations + PHI handling rules + clinical safety constraints for Triora. Triggers when working on clinical trial matching, patient data, or anything PHI-adjacent. Production-grade.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/domains/triora/triora-healthcare-context"
+      },
+      "layer": "domain-triora",
+      "staged": true,
+      "production_target": {
+        "name": "Orryx Group",
+        "url": "https://orryx.dev"
+      }
+    },
+    {
+      "name": "triora-orryx-integration",
+      "description": "Orryx ecosystem integration for Triora (MCP Gateway, Auth0, cross-repo protocol). Triggers when integrating Triora with other Orryx services.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/domains/triora/triora-orryx-integration"
+      },
+      "layer": "domain-triora",
+      "staged": true,
+      "production_target": {
+        "name": "Orryx Group",
+        "url": "https://orryx.dev"
+      }
+    },
+    {
+      "name": "triora-production-testing",
+      "description": "Autonomous production testing via GitHub Actions WAF bypass. Triggers when production tests need to run from inside the VPC. Re-usable for any AU-locked product.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/domains/triora/triora-production-testing"
+      },
+      "layer": "domain-triora",
+      "staged": true,
+      "production_target": {
+        "name": "Orryx Group",
+        "url": "https://orryx.dev"
+      }
+    },
+    {
+      "name": "triora-research-integration",
+      "description": "Rules for integrating research outputs into operational documentation. Triora-specific.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/domains/triora/triora-research-integration"
+      },
+      "layer": "domain-triora",
+      "staged": true,
+      "production_target": {
+        "name": "Orryx Group",
+        "url": "https://orryx.dev"
+      }
+    },
+    {
+      "name": "triora-task-workflows",
+      "description": "Task-based document workflows for Triora (which docs to read for planning, development, governance). Triggers on Sprint planning within Triora.",
+      "version": "0.1.0",
+      "source": {
+        "type": "local",
+        "path": "./plugins/domains/triora/triora-task-workflows"
+      },
+      "layer": "domain-triora",
+      "staged": true,
+      "production_target": {
+        "name": "Orryx Group",
+        "url": "https://orryx.dev"
+      }
+    }
+  ]
+}

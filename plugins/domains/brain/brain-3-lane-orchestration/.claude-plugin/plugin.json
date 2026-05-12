@@ -1,0 +1,11 @@
+{
+  "name": "brain-3-lane-orchestration",
+  "description": "Three-lane parallel orchestration (Brain + Triora + Pillarworks) via SYNC_STATE + CONTROL_STATE. Brain-specific overrides on top of cross-cutting orchestration/3-lane-parallel.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain": "brain"
+}

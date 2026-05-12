@@ -1,0 +1,11 @@
+{
+  "name": "triora-document-library",
+  "description": "Complete document library index for Triora. Triggers on \"where is X documented\" within Triora.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain": "triora"
+}

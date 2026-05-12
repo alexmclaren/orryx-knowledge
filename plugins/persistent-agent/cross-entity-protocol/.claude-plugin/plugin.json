@@ -1,0 +1,10 @@
+{
+  "name": "cross-entity-protocol",
+  "description": "Cross-entity business-setup protocol for the Orryx Group. Triggers on \"set up X for the Orryx Group\", \"onboard a new entity\", \"what do I need to coordinate across Triora and Pillarworks\", or any work that touches multiple entities at once. Defines the canonical setup checklist + state hand-off pattern. Lifted from claw-memory ORRYX_TRIORA_BUSINESS_SETUP.md.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

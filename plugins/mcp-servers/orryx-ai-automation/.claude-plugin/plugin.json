@@ -1,0 +1,13 @@
+{
+  "name": "orryx-ai-automation-mcp",
+  "description": "AI automation domain MCP. Endpoints for /run-workflow, /list-active-jobs, /log-execution-event, /compute-cost-estimate, /sync-workflow-status.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain_mcp": true,
+  "domain": "ai-automation",
+  "port": 9009
+}

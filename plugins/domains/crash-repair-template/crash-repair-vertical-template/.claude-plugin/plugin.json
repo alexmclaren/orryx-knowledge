@@ -1,0 +1,11 @@
+{
+  "name": "crash-repair-vertical-template",
+  "description": "First instance of the vertical-industry-setup template framework. Crash-repair-specific: agents/, prompts/, standards/, architecture/{decisions,schemas}/. Reusable scaffold for industry-specific Claude setups.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain": "crash-repair-template"
+}

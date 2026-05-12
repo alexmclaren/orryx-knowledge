@@ -1,0 +1,11 @@
+{
+  "name": "triora-research-integration",
+  "description": "Rules for integrating research outputs into operational documentation. Triora-specific.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain": "triora"
+}

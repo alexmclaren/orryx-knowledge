@@ -1,0 +1,13 @@
+{
+  "name": "orryx-hr-mcp",
+  "description": "HR domain MCP. Endpoints for /get-employee-record, /list-active-projects, /log-time-entry, /compute-cost-allocation, /sync-payroll-state.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain_mcp": true,
+  "domain": "hr",
+  "port": 9006
+}

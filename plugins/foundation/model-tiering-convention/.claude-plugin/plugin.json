@@ -1,0 +1,10 @@
+{
+  "name": "model-tiering-convention",
+  "description": "Model tiering convention for Orryx Group agents and subagents. Triggers when authoring a new subagent, configuring an agent's model, or deciding which model tier to use for a task. Defines haiku (explorer with permissionMode plan, doc-writer), sonnet (code-reviewer, test-writer, migration-writer, default delivery), and opus (security-reviewer, pr-investigator, deep-research, high-stakes review). Canonical Orryx convention; lifted from Triora.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

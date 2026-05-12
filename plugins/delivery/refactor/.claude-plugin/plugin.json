@@ -1,0 +1,10 @@
+{
+  "name": "refactor",
+  "description": "Structured refactor workflow (test-first, smaller-steps, no behaviour change). Triggers on /refactor, \"refactor this\", \"clean up X\". Promoted from Triora SKILL.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

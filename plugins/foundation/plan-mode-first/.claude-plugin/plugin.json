@@ -1,0 +1,10 @@
+{
+  "name": "plan-mode-first",
+  "description": "Plan-mode-first discipline for non-trivial work. Triggers at the start of any task that modifies code, infrastructure, or shared docs. Defines when plan mode is mandatory, what counts as exempt (trivial reads, doc fixes, emergency hotfixes), and how autonomous-within-plan operation works. Harmonised from Triora, Pillarworks, and Orryx Brain Section 0 patterns.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "cross-model-verification",
+  "description": "Cross-model verification protocol for high-risk code. Triggers when authoring or reviewing code in categories prone to subtle errors (regex, async / concurrency, security-sensitive code, database migrations, edge-case-heavy parsing). Defines when to verify Claude output with a non-Claude model (ChatGPT, Gemini), the handoff-protocol YAML schema, and how to interpret verification results. Lifted from Pillarworks's 2-verifier pattern.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

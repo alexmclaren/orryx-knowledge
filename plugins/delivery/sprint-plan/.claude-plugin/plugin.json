@@ -1,0 +1,10 @@
+{
+  "name": "sprint-plan",
+  "description": "Generate a sprint plan. Triggers on /sprint-plan, \"plan next sprint\", \"what should we work on\". Merges Triora sprint-plan + Pillarworks SPRINT pattern.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

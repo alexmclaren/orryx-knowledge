@@ -1,0 +1,10 @@
+{
+  "name": "pr-investigate",
+  "description": "Cross-PR root-cause investigation (opus tier). Triggers on /pr-investigate, \"why did X break\", \"find when Y was introduced\". Promoted from Triora SKILL.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

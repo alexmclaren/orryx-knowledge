@@ -1,0 +1,11 @@
+{
+  "name": "triora-production-testing",
+  "description": "Autonomous production testing via GitHub Actions WAF bypass. Triggers when production tests need to run from inside the VPC. Re-usable for any AU-locked product.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain": "triora"
+}

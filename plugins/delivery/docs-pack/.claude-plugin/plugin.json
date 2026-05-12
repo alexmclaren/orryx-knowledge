@@ -1,0 +1,10 @@
+{
+  "name": "docs-pack",
+  "description": "Creates a documentation outline with concise summary, ready for team sharing. Triggers on /docs-pack, \"package this for the team\", \"make a brief for X\". Lifted from Pillarworks SKILL.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

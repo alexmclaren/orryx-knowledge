@@ -1,0 +1,11 @@
+{
+  "name": "triora-task-workflows",
+  "description": "Task-based document workflows for Triora (which docs to read for planning, development, governance). Triggers on Sprint planning within Triora.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain": "triora"
+}

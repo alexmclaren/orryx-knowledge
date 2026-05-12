@@ -1,0 +1,10 @@
+{
+  "name": "sync-docs",
+  "description": "Sync local repo docs (README, CHANGELOG, ADRs) with canonical sources in orryx-knowledge / orryx-standards. Triggers on /sync-docs, \"fix doc drift\", \"is my README current\".",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

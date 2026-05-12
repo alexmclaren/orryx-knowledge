@@ -1,0 +1,10 @@
+{
+  "name": "tdd-discipline",
+  "description": "Test-driven development discipline (red-green-refactor). Triggers when authoring new functionality or fixing bugs. Enforces failing test first, minimal code to pass, then refactor. Pairs with the test-writer subagent (sonnet tier). Used by Triora's test-writer + migration-writer agents and Pillarworks tester agent.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

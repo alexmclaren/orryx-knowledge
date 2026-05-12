@@ -1,0 +1,11 @@
+{
+  "name": "flow-tenant-security",
+  "description": "Multi-tenant security validation for Orryx Flow (/validate-tenant-security). Triggers when reviewing tenant isolation in clinic-operations features.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain": "flow"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "3-lane-parallel",
+  "description": "Three-lane parallel execution pattern for the Orryx Group (Brain + Triora + Pillarworks lanes coordinated by SYNC_STATE + CONTROL_STATE). Triggers on cross-product Sprint planning, \"what should each product team do this sprint\", \"coordinate the lanes\", or \"/3-lane-parallel\". Originally Brain Sprint 28 pattern; promoted to cross-cutting.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

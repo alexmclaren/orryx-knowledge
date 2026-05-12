@@ -1,0 +1,10 @@
+{
+  "name": "persistent-memory-template",
+  "description": "Persistent-agent template using the file-as-memory sextet (SOUL.md, IDENTITY.md, MEMORY.md, HEARTBEAT.md, USER.md, TOOLS.md). Triggers on \"set up a persistent agent\", \"give this agent memory\", \"make this agent stateful\", or any agent that needs to remember across sessions. Lifted from claw-memory; promoted in Wave 7.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

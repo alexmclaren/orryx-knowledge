@@ -1,0 +1,10 @@
+{
+  "name": "onboard",
+  "description": "Onboarding workflow for new contributors. Triggers on /onboard, \"new dev getting started\", \"show me the ropes\". Promoted from Triora SKILL.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

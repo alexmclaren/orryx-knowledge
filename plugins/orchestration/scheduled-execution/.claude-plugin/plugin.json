@@ -1,0 +1,10 @@
+{
+  "name": "scheduled-execution",
+  "description": "Three-tier scheduled execution model for Claude Code (cloud Routines, local persistent Desktop tasks, session-scoped /loop). Triggers on \"run this every day\", \"schedule X\", \"automate the audit\", \"make this recurring\", or any periodic-execution need. Built from reality-check Spec ST-001 framing + the architecture brief's three-tier model.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

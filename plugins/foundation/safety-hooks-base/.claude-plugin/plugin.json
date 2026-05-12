@@ -1,0 +1,10 @@
+{
+  "name": "safety-hooks-base",
+  "description": "Universal Claude Code safety hooks for the Orryx Group. Triggers when setting up a new repo's .claude/settings.json, when reviewing existing hook configurations, or when secret leakage / dangerous bash patterns need to be blocked at the tool-call boundary. Installs PreToolUse bash blocklist, PostToolUse file blocklist (.env / .pem / terraform.tfstate / *-accessKeys.csv), and UserPromptSubmit safety-policy check.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "brain-ecosystem-config",
+  "description": "Cross-product ecosystem configuration management for Brain. Triggers on cross-product config changes.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain": "brain"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "triora-orryx-integration",
+  "description": "Orryx ecosystem integration for Triora (MCP Gateway, Auth0, cross-repo protocol). Triggers when integrating Triora with other Orryx services.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain": "triora"
+}

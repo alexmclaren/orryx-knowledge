@@ -1,0 +1,10 @@
+{
+  "name": "skill-creator",
+  "description": "Authors new Claude Code skills following Orryx Group conventions. Triggers on requests to create a new skill, add a SKILL.md, build a skill for X, or \"how do I make a skill\". Covers frontmatter structure, when_to_use phrasing, model tier declaration, ASSET_INDEX.md registration, and the references/ subdirectory pattern.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

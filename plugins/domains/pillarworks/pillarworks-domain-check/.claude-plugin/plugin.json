@@ -1,0 +1,11 @@
+{
+  "name": "pillarworks-domain-check",
+  "description": "Construction domain wording consistency and estimation safety check for Pillarworks BOQ automation.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain": "pillarworks"
+}

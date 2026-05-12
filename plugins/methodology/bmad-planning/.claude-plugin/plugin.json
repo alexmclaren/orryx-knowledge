@@ -1,0 +1,10 @@
+{
+  "name": "bmad-planning",
+  "description": "BMAD planning workflow (Brief, Model, Architect, Develop). Triggers on greenfield feature work, product discovery, or \"let's design X\". Produces a PRD and Tech Spec before any implementation. Pattern adopted by Pillarworks from bmad-code-org; promoted to Orryx cross-cutting.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "asset-index",
+  "description": "Check-before-create discipline. Triggers before authoring a new skill, agent, prompt, slash command, hook, or shared schema. Consults the repo-local ASSET_INDEX.md to prevent duplication; lifted from Pillarworks's mature pattern. Reduces \"we already have one of these\" rework and keeps cross-product coordination cheaper.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

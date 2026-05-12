@@ -1,0 +1,10 @@
+{
+  "name": "inbox-automation",
+  "description": "Gmail + Outlook365 inbox automation patterns (cleanup, sort, archive, financial-account protection). Triggers on \"clean up my inbox\", \"process emails\", \"automate email triage\", or any inbox-management ask. Lifted from claw-memory PowerShell + Node scripts. Sensitive — install only after confirming personal-automation posture and OAuth scopes.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

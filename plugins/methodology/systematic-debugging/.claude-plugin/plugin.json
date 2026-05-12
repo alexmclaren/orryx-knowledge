@@ -1,0 +1,10 @@
+{
+  "name": "systematic-debugging",
+  "description": "Four-phase systematic debugging (reproduce, isolate, hypothesise, fix). Triggers on bug reports, test failures, error messages, \"X is broken / not working / failing\", \"why is X happening\", or production incident triage. Production-reality-first; verifies hypotheses against the running system before changing code. Replaces \"guess and check\" debugging.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

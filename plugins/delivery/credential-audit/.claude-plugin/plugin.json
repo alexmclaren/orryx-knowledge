@@ -1,0 +1,10 @@
+{
+  "name": "credential-audit",
+  "description": "Scans repos for committed secrets, expired API keys, hardcoded credentials. Triggers on /credential-audit, \"audit my secrets\", \"check for leaked keys\". Promoted from Brain slash command.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

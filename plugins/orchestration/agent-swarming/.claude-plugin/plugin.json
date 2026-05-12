@@ -1,0 +1,10 @@
+{
+  "name": "agent-swarming",
+  "description": "Multi-agent collaboration patterns + agent roles + swarming protocols + cross-model verification for Orryx Group development. Triggers on multi-agent task design, \"spawn agents\", \"parallelise this work\", or planning a complex delivery. Canonical Orryx pattern; lifted from Triora.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

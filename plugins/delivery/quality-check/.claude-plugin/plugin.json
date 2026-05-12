@@ -1,0 +1,10 @@
+{
+  "name": "quality-check",
+  "description": "Run lint + type-check + test suite + coverage report. Triggers on /quality-check, \"run quality gates\", \"ready for review\". Merges Triora quality-check + Pillarworks quality-gate agent.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

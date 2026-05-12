@@ -1,0 +1,11 @@
+{
+  "name": "flow-clinical-workflows",
+  "description": "Clinical workflow patterns. Triggers on clinic-operations work (intake, triage, charting, billing handoff).",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain": "flow"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "code-review",
+  "description": "Two-stage code review (sonnet then opus for high-risk) with skill + subagent + slash-command surfaces. Triggers on review requests, pre-merge checks, \"review this PR / diff / branch\", or as the final step of plan-and-execute. Merges Triora code-reviewer + merge-review, Pillarworks review SKILL + reviewer + quality-gate agents, and Brain /review command.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

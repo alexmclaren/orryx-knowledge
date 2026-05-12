@@ -1,0 +1,10 @@
+{
+  "name": "cpd-protocol",
+  "description": "Continuous Parallel Development (CPD) protocol with 5 parallel work streams (Research, Discovery, Planning, Development, Review). Triggers on Sprint planning, \"run in parallel\", \"parallelise the work\", or \"what should each lane do\". Defines mandatory parallel agents per sprint start, execution patterns, and research queue management. Lifted from Triora.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

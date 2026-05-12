@@ -1,0 +1,10 @@
+{
+  "name": "git-worktrees",
+  "description": "Parallel isolated workspaces via git worktrees. Triggers on \"multi-terminal\", \"parallel work\", \"worktree\", \"I need a clean branch without losing my current state\", or coordinating multiple Claude Code sessions on the same repo. Merges Brain active-worktrees pattern + Pillarworks .claude/worktrees workflow.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

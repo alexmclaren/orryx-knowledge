@@ -1,0 +1,10 @@
+{
+  "name": "mcp-builder",
+  "description": "Authors new MCP servers for the Orryx Group using @orryx/core's DomainMcpBase. Triggers on requests to build an MCP server, add an MCP integration, scaffold a service-domain MCP, or \"how do I make an MCP server\". Enforces the verb-noun endpoint convention and audit-event schema lifted from orryx-risk-compliance design.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

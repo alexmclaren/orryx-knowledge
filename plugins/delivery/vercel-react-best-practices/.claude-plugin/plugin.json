@@ -1,0 +1,10 @@
+{
+  "name": "vercel-react-best-practices",
+  "description": "React best practices in Vercel context (RSC, app router, suspense). Lifted from Directors Portal extract.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "security-audit",
+  "description": "Runs a security review of a branch / PR / diff. Triggers on /security-audit, \"review for security\", \"is this safe to deploy\". Combines opus security-reviewer subagent + Brain slash command pattern.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

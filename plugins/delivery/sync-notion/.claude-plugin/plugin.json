@@ -1,0 +1,10 @@
+{
+  "name": "sync-notion",
+  "description": "Bidirectional sync of project state to Notion (sprint docs, ADRs, decisions). Triggers on /sync-notion, \"push to Notion\", \"sync my docs\". Promoted from Brain slash command.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

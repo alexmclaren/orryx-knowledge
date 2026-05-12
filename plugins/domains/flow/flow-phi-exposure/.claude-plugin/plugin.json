@@ -1,0 +1,11 @@
+{
+  "name": "flow-phi-exposure",
+  "description": "PHI exposure audit slash command for Orryx Flow (/audit-phi-exposure). Triggers when reviewing PHI-handling code in clinical workflow operations.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain": "flow"
+}

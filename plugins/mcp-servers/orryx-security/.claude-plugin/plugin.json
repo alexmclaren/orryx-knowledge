@@ -1,0 +1,13 @@
+{
+  "name": "orryx-security-mcp",
+  "description": "Security domain MCP. Endpoints for /check-vulnerability, /sync-incident-state, /log-security-event, /list-active-threats, /compute-security-score.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  },
+  "domain_mcp": true,
+  "domain": "security",
+  "port": 9002
+}

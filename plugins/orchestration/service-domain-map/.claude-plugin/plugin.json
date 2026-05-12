@@ -1,0 +1,10 @@
+{
+  "name": "service-domain-map",
+  "description": "Cross-product orchestration map for the Orryx Group. Triggers on \"what does X depend on\", \"which MCP should I call for Y\", \"/SERVICE_DOMAIN_MAP\", or any question about which service-domain MCP serves which capability across products. Materialises the implicit cross-repo map from Brain into a single maintained doc.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

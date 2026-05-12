@@ -1,0 +1,10 @@
+{
+  "name": "release-notes",
+  "description": "Generate user-facing release notes from a git range or PR list. Triggers on /release-notes, \"what shipped this week\", \"draft a changelog\". Promoted from Triora SKILL.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

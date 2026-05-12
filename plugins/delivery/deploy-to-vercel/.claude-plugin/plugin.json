@@ -1,0 +1,10 @@
+{
+  "name": "deploy-to-vercel",
+  "description": "Vercel deployment workflow. Triggers on \"deploy to Vercel\", \"preview deploy\", \"promote to production\". Lifted from Directors Portal extract; entity-agnostic.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}

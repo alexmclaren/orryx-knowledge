@@ -1,0 +1,10 @@
+{
+  "name": "reality-check",
+  "description": "Operational health audit (deps, CVEs, README staleness, secret leakage, dead-code heuristics). Triggers on /reality-check, \"audit the repos\", \"check group health\". Promoted from D:\\Orryx\\reality-check.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Orryx Group",
+    "url": "https://orryx.dev"
+  }
+}
