@@ -1,0 +1,52 @@
+# ADR-001: {{INDUSTRY_TITLE}} vertical positioning
+
+**Status:** proposed | accepted | superseded
+**Date:** YYYY-MM-DD
+**Owner:** (person)
+
+## Context
+
+We are entering the {{INDUSTRY}} vertical. The market is {{MARKET_SIZE}}.
+
+## Decision
+
+Our target customer is **{{TARGET_CUSTOMER}}**.
+
+Explicitly **NOT** our customer: **{{NOT_TARGET}}**.
+
+We position against **{{KEY_COMPETITORS}}**.
+
+## Rationale
+
+(why we picked this positioning)
+
+## Consequences
+
+### Positive
+
+- (what becomes easier)
+
+### Negative
+
+- (what becomes harder)
+
+### Neutral / unknown
+
+- (what remains uncertain)
+
+## Alternatives considered
+
+1. (option that was rejected) — rejected because (reason)
+2. (option that was rejected) — rejected because (reason)
+
+## Compliance implications
+
+See `standards/regulatory.md` for the regulatory landscape. Key obligations our chosen positioning imposes:
+
+- {{COMPLIANCE_FRAMEWORK}}
+- Data residency: {{DATA_RESIDENCY}}
+
+## See also
+
+- `ADR-002-...` (next ADR)
+- `D:\orryx-audit\10-target-architecture.md` — where this vertical fits in the Orryx Group

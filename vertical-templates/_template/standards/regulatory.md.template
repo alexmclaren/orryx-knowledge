@@ -1,0 +1,52 @@
+# {{INDUSTRY_TITLE}} regulatory landscape
+
+Authoritative reference for the regulations that apply to {{INDUSTRY}} work in the Orryx Group.
+
+## Regulators
+
+| Body | Jurisdiction | Authority over |
+|---|---|---|
+| {{REGULATORY_BODIES}} | AU / global | (fill in) |
+
+## Compliance frameworks applicable
+
+{{COMPLIANCE_FRAMEWORK}}
+
+## Data residency
+
+- Required: {{DATA_RESIDENCY}}
+- Rationale: (fill in regulatory citation)
+
+## Key regulations
+
+### (Regulation 1 name)
+
+- **Authority:** (regulator)
+- **Scope:** what activities it covers
+- **Our obligations:** what we must do
+- **Penalties:** what happens if we don't
+- **Canonical source:** (link)
+
+### (Regulation 2 name)
+
+(repeat)
+
+## When to escalate to legal counsel
+
+- (specific trigger 1)
+- (specific trigger 2)
+
+## Audit log retention
+
+- Required retention: (e.g., 10 years for healthcare; 7 years for financial; 5 years for general)
+- Storage: (e.g., AWS S3 Glacier, with KMS encryption)
+
+## Annual review
+
+This document is reviewed annually + on any regulatory change. Last reviewed: YYYY-MM-DD.
+
+## See also
+
+- `D:\orryx-governance\compliance\{{INDUSTRY}}.md` — entity-level compliance profile
+- `architecture/decisions/ADR-001-vertical-positioning.md` — positioning ADR
+- canonical sources linked above
