@@ -34,7 +34,6 @@ For each entity involved:
 - [ ] GitHub team membership (if applicable)
 - [ ] AWS IAM role (per `orryx-standards` compliance profile for the entity)
 - [ ] MCP gateway token (per-entity, stored in AWS Secrets Manager: `orryx/<entity>/api-token`)
-- [ ] Vercel team membership (for products with Vercel deployments)
 - [ ] Notion workspace access (if applicable)
 
 ### 3. Compliance

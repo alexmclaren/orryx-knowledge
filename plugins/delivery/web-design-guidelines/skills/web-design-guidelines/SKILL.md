@@ -22,5 +22,4 @@ Orryx Group brand baseline: typography, colour palette, spacing scale, component
 
 ## See also
 
-- delivery/vercel-composition-patterns
 - delivery/magic-patterns-design

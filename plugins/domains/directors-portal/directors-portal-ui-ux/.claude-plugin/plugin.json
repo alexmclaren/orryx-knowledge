@@ -1,6 +1,6 @@
 {
   "name": "directors-portal-ui-ux",
-  "description": "UI/UX patterns for the Directors Portal (Vercel + React + RSC + tenant-isolated dashboard). Lifted from D:\\orryx-brain\\clients\\directors-portal\\.claude\\skills\\ui-ux-pro-max.",
+  "description": "UI/UX patterns for the Directors Portal (React + RSC + tenant-isolated dashboard). Lifted from D:\\orryx-brain\\clients\\directors-portal\\.claude\\skills\\ui-ux-pro-max.",
   "version": "0.1.0",
   "license": "MIT",
   "author": {

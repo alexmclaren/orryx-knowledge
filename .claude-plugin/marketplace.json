@@ -232,16 +232,6 @@
       "layer": "delivery"
     },
     {
-      "name": "deploy-to-vercel",
-      "description": "Vercel deployment workflow. Triggers on \"deploy to Vercel\", \"preview deploy\", \"promote to production\". Lifted from Directors Portal extract; entity-agnostic.",
-      "version": "0.1.0",
-      "source": {
-        "type": "local",
-        "path": "./plugins/delivery/deploy-to-vercel"
-      },
-      "layer": "delivery"
-    },
-    {
       "name": "docs-pack",
       "description": "Creates a documentation outline with concise summary, ready for team sharing. Triggers on /docs-pack, \"package this for the team\", \"make a brief for X\". Lifted from Pillarworks SKILL.",
       "version": "0.1.0",
@@ -382,36 +372,6 @@
       "layer": "delivery"
     },
     {
-      "name": "vercel-composition-patterns",
-      "description": "Vercel composition patterns. Triggers on architecture questions for Vercel-hosted apps. Lifted from Directors Portal extract; entity-agnostic.",
-      "version": "0.1.0",
-      "source": {
-        "type": "local",
-        "path": "./plugins/delivery/vercel-composition-patterns"
-      },
-      "layer": "delivery"
-    },
-    {
-      "name": "vercel-react-best-practices",
-      "description": "React best practices in Vercel context (RSC, app router, suspense). Lifted from Directors Portal extract.",
-      "version": "0.1.0",
-      "source": {
-        "type": "local",
-        "path": "./plugins/delivery/vercel-react-best-practices"
-      },
-      "layer": "delivery"
-    },
-    {
-      "name": "vercel-react-native-skills",
-      "description": "Vercel + React Native cross-platform patterns. Lifted from Directors Portal extract.",
-      "version": "0.1.0",
-      "source": {
-        "type": "local",
-        "path": "./plugins/delivery/vercel-react-native-skills"
-      },
-      "layer": "delivery"
-    },
-    {
       "name": "web-design-guidelines",
       "description": "Web design guidelines for Orryx Group brand consistency. Lifted from Directors Portal extract.",
       "version": "0.1.0",
@@ -548,7 +508,7 @@
     },
     {
       "name": "directors-portal-ui-ux",
-      "description": "UI/UX patterns for the Directors Portal (Vercel + React + RSC + tenant-isolated dashboard). Lifted from D:\\orryx-brain\\clients\\directors-portal\\.claude\\skills\\ui-ux-pro-max.",
+      "description": "UI/UX patterns for the Directors Portal (React + RSC + tenant-isolated dashboard). Lifted from D:\\orryx-brain\\clients\\directors-portal\\.claude\\skills\\ui-ux-pro-max.",
       "version": "0.1.0",
       "source": {
         "type": "local",

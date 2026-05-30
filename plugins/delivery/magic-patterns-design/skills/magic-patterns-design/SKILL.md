@@ -23,5 +23,4 @@ Formalises the de facto Magic Patterns workflow used across 6+ Orryx Group brand
 ## See also
 
 - D:\Clinical.Trials\.mcp.json
-- delivery/deploy-to-vercel
 - delivery/web-design-guidelines
