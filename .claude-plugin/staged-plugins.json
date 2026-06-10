@@ -1,0 +1,110 @@
+{
+  "note": "Domain/MCP plugins not yet packaged (were marketplace.json staged:true). Promote into plugins[] when their SKILL.md/server is real, not a MIGRATION-TARGET.md placeholder.",
+  "staged_plugins": [
+    {
+      "name": "brain-3-lane-orchestration",
+      "description": "Three-lane parallel orchestration (Brain + Triora + Pillarworks) via SYNC_STATE + CONTROL_STATE. Brain-specific overrides on top of cross-cutting orchestration/3-lane-parallel.",
+      "version": "0.1.0",
+      "source": "./plugins/domains/brain/brain-3-lane-orchestration",
+      "category": "domain-brain"
+    },
+    {
+      "name": "brain-ecosystem-config",
+      "description": "Cross-product ecosystem configuration management for Brain. Triggers on cross-product config changes.",
+      "version": "0.1.0",
+      "source": "./plugins/domains/brain/brain-ecosystem-config",
+      "category": "domain-brain"
+    },
+    {
+      "name": "crash-repair-vertical-template",
+      "description": "First instance of the vertical-industry-setup template framework. Crash-repair-specific: agents/, prompts/, standards/, architecture/{decisions,schemas}/. Reusable scaffold for industry-specific Claude setups.",
+      "version": "0.1.0",
+      "source": "./plugins/domains/crash-repair-template/crash-repair-vertical-template",
+      "category": "domain-crash-repair-template"
+    },
+    {
+      "name": "directors-portal-ui-ux",
+      "description": "UI/UX patterns for the Directors Portal (React + RSC + tenant-isolated dashboard). Lifted from D:\\orryx-brain\\clients\\directors-portal\\.claude\\skills\\ui-ux-pro-max.",
+      "version": "0.1.0",
+      "source": "./plugins/domains/directors-portal/directors-portal-ui-ux",
+      "category": "domain-directors-portal"
+    },
+    {
+      "name": "flow-clinical-workflows",
+      "description": "Clinical workflow patterns. Triggers on clinic-operations work (intake, triage, charting, billing handoff).",
+      "version": "0.1.0",
+      "source": "./plugins/domains/flow/flow-clinical-workflows",
+      "category": "domain-flow"
+    },
+    {
+      "name": "flow-phi-exposure",
+      "description": "PHI exposure audit slash command for Orryx Flow (/audit-phi-exposure). Triggers when reviewing PHI-handling code in clinical workflow operations.",
+      "version": "0.1.0",
+      "source": "./plugins/domains/flow/flow-phi-exposure",
+      "category": "domain-flow"
+    },
+    {
+      "name": "flow-tenant-security",
+      "description": "Multi-tenant security validation for Orryx Flow (/validate-tenant-security). Triggers when reviewing tenant isolation in clinic-operations features.",
+      "version": "0.1.0",
+      "source": "./plugins/domains/flow/flow-tenant-security",
+      "category": "domain-flow"
+    },
+    {
+      "name": "pillarworks-agents-bundle",
+      "description": "Reference agent bundle for Pillarworks: 11 Claude YAMLs + 2 ChatGPT verifier configs + shared handoff-protocol. Template for product-specific agent bundles.",
+      "version": "0.1.0",
+      "source": "./plugins/domains/pillarworks/pillarworks-agents-bundle",
+      "category": "domain-pillarworks"
+    },
+    {
+      "name": "pillarworks-domain-check",
+      "description": "Construction domain wording consistency and estimation safety check for Pillarworks BOQ automation.",
+      "version": "0.1.0",
+      "source": "./plugins/domains/pillarworks/pillarworks-domain-check",
+      "category": "domain-pillarworks"
+    },
+    {
+      "name": "triora-document-library",
+      "description": "Complete document library index for Triora. Triggers on \"where is X documented\" within Triora.",
+      "version": "0.1.0",
+      "source": "./plugins/domains/triora/triora-document-library",
+      "category": "domain-triora"
+    },
+    {
+      "name": "triora-healthcare-context",
+      "description": "Australian healthcare regulations + PHI handling rules + clinical safety constraints for Triora. Triggers when working on clinical trial matching, patient data, or anything PHI-adjacent. Production-grade.",
+      "version": "0.1.0",
+      "source": "./plugins/domains/triora/triora-healthcare-context",
+      "category": "domain-triora"
+    },
+    {
+      "name": "triora-orryx-integration",
+      "description": "Orryx ecosystem integration for Triora (MCP Gateway, Auth0, cross-repo protocol). Triggers when integrating Triora with other Orryx services.",
+      "version": "0.1.0",
+      "source": "./plugins/domains/triora/triora-orryx-integration",
+      "category": "domain-triora"
+    },
+    {
+      "name": "triora-production-testing",
+      "description": "Autonomous production testing via GitHub Actions WAF bypass. Triggers when production tests need to run from inside the VPC. Re-usable for any AU-locked product.",
+      "version": "0.1.0",
+      "source": "./plugins/domains/triora/triora-production-testing",
+      "category": "domain-triora"
+    },
+    {
+      "name": "triora-research-integration",
+      "description": "Rules for integrating research outputs into operational documentation. Triora-specific.",
+      "version": "0.1.0",
+      "source": "./plugins/domains/triora/triora-research-integration",
+      "category": "domain-triora"
+    },
+    {
+      "name": "triora-task-workflows",
+      "description": "Task-based document workflows for Triora (which docs to read for planning, development, governance). Triggers on Sprint planning within Triora.",
+      "version": "0.1.0",
+      "source": "./plugins/domains/triora/triora-task-workflows",
+      "category": "domain-triora"
+    }
+  ]
+}
