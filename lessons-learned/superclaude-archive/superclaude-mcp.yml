@@ -1,0 +1,349 @@
+# SuperClaude MCP Server Configuration
+# Context7, Sequential, Magic, and Puppeteer server configurations
+
+version: "1.0"
+framework: "SuperClaude"
+organization: "Orryx AI Consultancy"
+
+# MCP Server Definitions
+mcp_servers:
+  context7:
+    name: "Context7"
+    flag: "--c7"
+    description: "Documentation and pattern reference server"
+    capabilities:
+      - documentation_lookup
+      - pattern_library_access
+      - framework_references
+      - best_practices_database
+      - compliance_standards
+      - security_frameworks
+    
+    use_cases:
+      - library_pattern_references
+      - framework_documentation_lookup
+      - compliance_standard_validation
+      - security_framework_implementation
+      - architecture_pattern_guidance
+      - code_quality_standards
+    
+    required_for_commands:
+      - design
+      - analyze
+      - security
+      - document
+      - review
+      - validate
+    
+    integration_rules:
+      citation_required: true
+      source_verification: true
+      pattern_validation: true
+      compliance_checking: true
+    
+    endpoints:
+      documentation: "/api/v1/docs"
+      patterns: "/api/v1/patterns"
+      frameworks: "/api/v1/frameworks"
+      compliance: "/api/v1/compliance"
+      security: "/api/v1/security"
+  
+  sequential:
+    name: "Sequential"
+    flag: "--seq"
+    description: "Step-by-step procedure execution server"
+    capabilities:
+      - sequential_task_execution
+      - procedure_orchestration
+      - step_validation
+      - rollback_procedures
+      - checkpoint_management
+      - progress_tracking
+    
+    use_cases:
+      - multi_step_deployments
+      - migration_procedures
+      - testing_workflows
+      - configuration_management
+      - backup_procedures
+      - incident_response
+    
+    required_for_commands:
+      - deploy
+      - migrate
+      - test
+      - backup
+      - validate
+      - config
+    
+    integration_rules:
+      step_validation_required: true
+      checkpoint_creation: true
+      rollback_capability: true
+      progress_reporting: true
+    
+    endpoints:
+      execution: "/api/v1/execute"
+      validation: "/api/v1/validate"
+      rollback: "/api/v1/rollback"
+      progress: "/api/v1/progress"
+      checkpoints: "/api/v1/checkpoints"
+  
+  magic:
+    name: "Magic"
+    flag: "--magic"
+    description: "Automation and orchestration server"
+    capabilities:
+      - infrastructure_automation
+      - deployment_orchestration
+      - configuration_management
+      - service_provisioning
+      - resource_optimization
+      - workflow_automation
+    
+    use_cases:
+      - infrastructure_as_code
+      - automated_deployments
+      - service_orchestration
+      - resource_provisioning
+      - configuration_automation
+      - monitoring_setup
+    
+    required_for_commands:
+      - deploy
+      - migrate
+      - optimize
+      - monitor
+      - backup
+      - config
+    
+    integration_rules:
+      automation_validation: true
+      resource_management: true
+      orchestration_control: true
+      optimization_tracking: true
+    
+    endpoints:
+      automation: "/api/v1/automate"
+      orchestration: "/api/v1/orchestrate"
+      provisioning: "/api/v1/provision"
+      optimization: "/api/v1/optimize"
+      monitoring: "/api/v1/monitor"
+  
+  puppeteer:
+    name: "Puppeteer"
+    flag: "--pup"
+    description: "Browser automation and testing server"
+    capabilities:
+      - browser_automation
+      - ui_testing
+      - performance_testing
+      - security_scanning
+      - accessibility_testing
+      - visual_regression_testing
+    
+    use_cases:
+      - end_to_end_testing
+      - ui_automation
+      - performance_benchmarking
+      - security_vulnerability_scanning
+      - accessibility_compliance_testing
+      - visual_testing
+    
+    required_for_commands:
+      - test
+      - analyze
+      - security
+      - validate
+      - review
+    
+    integration_rules:
+      browser_management: true
+      test_execution: true
+      result_reporting: true
+      screenshot_capture: true
+    
+    endpoints:
+      automation: "/api/v1/automate"
+      testing: "/api/v1/test"
+      scanning: "/api/v1/scan"
+      performance: "/api/v1/performance"
+      accessibility: "/api/v1/accessibility"
+  
+  huggingface:
+    name: "HuggingFace"
+    flag: "--hf"
+    description: "AI/ML model server for NLP, embeddings, and RAG operations"
+    capabilities:
+      - text_generation
+      - sentiment_analysis
+      - document_embeddings
+      - semantic_search
+      - question_answering
+      - text_summarization
+      - language_translation
+      - named_entity_recognition
+      - vector_database_operations
+      - retrieval_augmented_generation
+    
+    use_cases:
+      - private_data_query
+      - document_summarization
+      - semantic_search_operations
+      - rag_implementation
+      - text_analysis_workflows
+      - content_generation
+      - multi_agent_coordination
+      - knowledge_base_integration
+    
+    required_for_commands:
+      - rag
+      - summarise
+      - private-data-query
+      - develop
+      - orchestrate
+      - simulate
+    
+    integration_rules:
+      model_validation: true
+      embedding_management: true
+      vector_storage: true
+      rag_pipeline_control: true
+      token_optimization: true
+    
+    endpoints:
+      generation: "/api/v1/generate"
+      embeddings: "/api/v1/embeddings"
+      search: "/api/v1/search"
+      rag: "/api/v1/rag"
+      summarization: "/api/v1/summarize"
+      analysis: "/api/v1/analyze"
+
+# MCP Server Activation Rules
+activation_rules:
+  mandatory_server_selection:
+    description: "At least one MCP server must be specified per session"
+    enforcement: strict
+    error_handling: "reject_session"
+  
+  context7_requirements:
+    description: "Context7 required for external library or framework references"
+    triggers:
+      - external_library_reference
+      - framework_implementation
+      - pattern_lookup
+      - compliance_validation
+    enforcement: strict
+  
+  sequential_requirements:
+    description: "Sequential required for multi-step procedures"
+    triggers:
+      - steps_greater_than: 3
+      - procedure_execution
+      - deployment_workflow
+      - migration_process
+    enforcement: strict
+  
+  magic_requirements:
+    description: "Magic required for automation and deployment tasks"
+    triggers:
+      - infrastructure_automation
+      - deployment_task
+      - orchestration_needed
+      - resource_provisioning
+    enforcement: strict
+  
+  puppeteer_requirements:
+    description: "Puppeteer required for browser automation and UI testing"
+    triggers:
+      - ui_testing_needed
+      - browser_automation
+      - security_scanning
+      - performance_testing
+    enforcement: strict
+  
+  huggingface_requirements:
+    description: "HuggingFace required for AI/ML and RAG operations"
+    triggers:
+      - rag_operations
+      - document_summarization
+      - semantic_search
+      - text_generation
+      - private_data_query
+      - multi_agent_workflows
+      - knowledge_base_operations
+    enforcement: strict
+
+# Server Integration Patterns
+integration_patterns:
+  multi_server_workflows:
+    context7_sequential:
+      use_case: "Documented step-by-step procedures"
+      pattern: "Context7 for documentation lookup + Sequential for execution"
+      commands: ["deploy", "migrate", "validate"]
+    
+    magic_sequential:
+      use_case: "Automated deployment workflows"
+      pattern: "Magic for automation + Sequential for orchestration"
+      commands: ["deploy", "backup", "config"]
+    
+    puppeteer_context7:
+      use_case: "Automated testing with documentation"
+      pattern: "Puppeteer for testing + Context7 for test standards"
+      commands: ["test", "analyze", "security"]
+    
+    all_servers:
+      use_case: "Complex architectural implementations"
+      pattern: "All servers for comprehensive coverage"
+      commands: ["build", "design"]
+    
+    huggingface_context7:
+      use_case: "AI/ML implementations with documentation"
+      pattern: "HuggingFace for AI operations + Context7 for ML best practices"
+      commands: ["rag", "summarise", "analyze"]
+    
+    huggingface_sequential:
+      use_case: "Multi-step AI/ML pipelines"
+      pattern: "HuggingFace for processing + Sequential for workflow orchestration"
+      commands: ["develop", "orchestrate", "private-data-query"]
+    
+    huggingface_magic:
+      use_case: "Automated AI/ML deployment and scaling"
+      pattern: "HuggingFace for models + Magic for infrastructure automation"
+      commands: ["deploy", "optimize", "simulate"]
+
+# Server Health and Monitoring
+monitoring:
+  health_checks:
+    interval: "30s"
+    timeout: "10s"
+    retry_attempts: 3
+  
+  performance_metrics:
+    response_time_threshold: "2s"
+    throughput_monitoring: true
+    error_rate_tracking: true
+  
+  logging:
+    request_logging: true
+    error_logging: true
+    performance_logging: true
+    audit_logging: true
+
+# Security Configuration
+security:
+  authentication:
+    api_key_required: true
+    token_validation: true
+    session_management: true
+  
+  authorization:
+    role_based_access: true
+    command_level_permissions: true
+    resource_access_control: true
+  
+  data_protection:
+    encryption_in_transit: true
+    encryption_at_rest: true
+    data_anonymization: true
+    audit_trail_required: true

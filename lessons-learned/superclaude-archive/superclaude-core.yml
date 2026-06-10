@@ -1,0 +1,344 @@
+# SuperClaude Core Configuration
+# Agent commands and architectural logic for Orryx AI system
+
+version: "1.0"
+framework: "SuperClaude"
+organization: "Orryx AI Consultancy"
+
+# Core Agent Commands Configuration
+commands:
+  build:
+    description: "Constructs or generates code, workflows, or files from prompt + context + persona"
+    required_flags: ["persona"]
+    recommended_mcp: ["c7"]
+    output_format: ["markdown", "yaml"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - steps_gt: 3
+      - files_gt: 6
+    
+  scan:
+    description: "Audits existing Claude flows, prompt chains, or agent logic for weaknesses"
+    required_flags: ["persona-qa", "validate"]
+    recommended_mcp: ["seq"]
+    output_format: ["markdown"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - gaps_gt: 3
+    
+  plan:
+    description: "Analyzes business goals and intake context to generate structured delivery plan"
+    required_flags: ["persona"]
+    recommended_mcp: ["c7", "seq"]
+    output_format: ["markdown"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - phases_gt: 3
+    
+  test:
+    description: "Executes comprehensive testing workflows and validation"
+    required_flags: ["persona-qa", "persona-security"]
+    recommended_mcp: ["seq", "pup"]
+    output_format: ["markdown"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - test_failures_gt: 3
+    
+  design:
+    description: "Creates system architecture and technical designs using Claude and MetaGPT"
+    required_flags: ["persona-architect"]
+    recommended_mcp: ["c7", "magic"]
+    external_tool: "metagpt"
+    output_format: ["markdown", "yaml"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - architectural_decision: true
+      - metagpt_integration: true
+      - system_design_needed: true
+    
+  analyze:
+    description: "Performs deep analysis of code, systems, security vulnerabilities, and performance"
+    required_flags: ["persona-security", "persona-architect", "persona-qa"]
+    recommended_mcp: ["pup", "c7"]
+    output_format: ["markdown"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - security_analysis: true
+      - vulnerabilities_found: true
+    
+  deploy:
+    description: "Automates deployment processes and infrastructure provisioning"
+    required_flags: ["persona-devops", "persona-architect"]
+    recommended_mcp: ["seq", "magic"]
+    output_format: ["markdown", "yaml"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - deployment_task: true
+      - production_environment: true
+    
+  migrate:
+    description: "Handles data migrations, system upgrades, and platform transitions"
+    required_flags: ["persona-architect", "persona-devops"]
+    recommended_mcp: ["seq", "magic"]
+    output_format: ["markdown", "yaml"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - migration_task: true
+      - data_transformation: true
+    
+  optimize:
+    description: "Analyzes and improves system performance and resource utilization"
+    required_flags: ["persona"]
+    recommended_mcp: ["c7", "magic"]
+    output_format: ["markdown"]
+    auto_trigger_todo: false
+    trigger_conditions:
+      - performance_analysis: true
+    
+  validate:
+    description: "Performs comprehensive validation of configurations and compliance"
+    required_flags: ["persona-qa", "persona-security", "persona-devops"]
+    recommended_mcp: ["seq", "c7"]
+    output_format: ["markdown"]
+    auto_trigger_todo: false
+    trigger_conditions:
+      - compliance_validation: true
+    
+  document:
+    description: "Generates comprehensive technical documentation and guides"
+    required_flags: ["persona"]
+    recommended_mcp: ["c7", "seq"]
+    output_format: ["markdown"]
+    auto_trigger_todo: false
+    trigger_conditions:
+      - documentation_task: true
+    
+  security:
+    description: "Conducts security assessments and implements security controls"
+    required_flags: ["persona-security"]
+    recommended_mcp: ["pup", "c7"]
+    output_format: ["markdown"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - security_task: true
+      - critical_vulnerabilities: true
+    
+  monitor:
+    description: "Establishes monitoring, alerting, and observability systems"
+    required_flags: ["persona-devops", "persona-architect"]
+    recommended_mcp: ["magic", "c7"]
+    output_format: ["markdown", "yaml"]
+    auto_trigger_todo: false
+    trigger_conditions:
+      - monitoring_setup: true
+    
+  backup:
+    description: "Implements backup strategies and disaster recovery procedures"
+    required_flags: ["persona-devops", "persona-architect"]
+    recommended_mcp: ["seq", "magic"]
+    output_format: ["markdown", "yaml"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - disaster_recovery: true
+      - production_backup: true
+    
+  todo:
+    description: "Automatically generates and manages structured task lists"
+    required_flags: ["persona"]
+    recommended_mcp: ["seq", "c7"]
+    output_format: ["markdown"]
+    auto_trigger_todo: false
+    auto_triggered_by: 
+      - steps_gt_3
+      - files_gt_6
+      - deployment_task
+      - security_task
+      - architectural_decision
+      - multi_agent_workflow
+      - rag_implementation
+      - private_data_operations
+      - external_tool_integration
+      - autogen_workflow
+      - crewai_coordination
+      - metagpt_design
+      - llamaindex_query
+      - prefect_pipeline
+      - dagster_assets
+    
+  config:
+    description: "Manages configuration files and environment settings"
+    required_flags: ["persona"]
+    recommended_mcp: ["seq", "c7"]
+    output_format: ["markdown", "yaml"]
+    auto_trigger_todo: false
+    trigger_conditions:
+      - configuration_task: true
+    
+  review:
+    description: "Conducts comprehensive code reviews and quality audits"
+    required_flags: ["persona-qa", "persona-architect", "persona-security"]
+    recommended_mcp: ["c7", "pup"]
+    output_format: ["markdown"]
+    auto_trigger_todo: false
+    trigger_conditions:
+      - code_review: true
+  
+  rag:
+    description: "Implements retrieval-augmented generation for private knowledge bases"
+    required_flags: ["persona-data", "persona-architect"]
+    recommended_mcp: ["hf", "c7"]
+    output_format: ["markdown", "json"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - knowledge_base_operations: true
+      - private_data_query: true
+  
+  summarise:
+    description: "Performs intelligent document analysis and content summarization"
+    required_flags: ["persona-data"]
+    recommended_mcp: ["hf"]
+    output_format: ["markdown"]
+    auto_trigger_todo: false
+    trigger_conditions:
+      - document_analysis: true
+      - content_summarization: true
+  
+  private-data-query:
+    description: "Executes secure queries against private knowledge bases and datasets"
+    required_flags: ["persona-data", "persona-security"]
+    recommended_mcp: ["hf", "seq"]
+    output_format: ["markdown", "json"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - private_data_access: true
+      - secure_query_operations: true
+  
+  develop:
+    description: "Coordinates multi-agent development workflows using Claude, AutoGen, and CrewAI"
+    required_flags: ["persona-architect", "persona-fullstack"]
+    recommended_mcp: ["hf", "seq", "magic"]
+    external_tools: ["autogen", "crewai"]
+    output_format: ["markdown", "yaml"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - multi_agent_workflow: true
+      - collaborative_development: true
+      - autogen_integration: true
+      - crewai_integration: true
+  
+  orchestrate:
+    description: "Manages business process automation and team coordination"
+    required_flags: ["persona-business", "persona-architect"]
+    recommended_mcp: ["hf", "magic"]
+    output_format: ["markdown", "yaml"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - business_process_automation: true
+      - team_coordination: true
+  
+  simulate:
+    description: "Executes role-based scenario modeling and system simulation"
+    required_flags: ["persona-architect", "persona-qa"]
+    recommended_mcp: ["hf", "seq"]
+    output_format: ["markdown", "json"]
+    auto_trigger_todo: false
+    trigger_conditions:
+      - scenario_modeling: true
+      - system_simulation: true
+  
+  rag-query:
+    description: "Executes RAG queries using Claude and LlamaIndex integration"
+    required_flags: ["persona-data"]
+    recommended_mcp: ["hf", "c7"]
+    external_tool: "llamaindex"
+    output_format: ["markdown", "json"]
+    auto_trigger_todo: false
+    trigger_conditions:
+      - rag_query_needed: true
+      - llamaindex_integration: true
+  
+  pipeline:
+    description: "Creates and manages data pipelines using Claude and Prefect workflows"
+    required_flags: ["persona-data", "persona-devops"]
+    recommended_mcp: ["magic", "seq"]
+    external_tool: "prefect"
+    output_format: ["markdown", "yaml"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - data_pipeline_needed: true
+      - workflow_orchestration: true
+  
+  assets:
+    description: "Manages data assets and orchestration using Claude and Dagster"
+    required_flags: ["persona-data", "persona-devops"]
+    recommended_mcp: ["magic", "c7"]
+    external_tool: "dagster"
+    output_format: ["markdown", "yaml"]
+    auto_trigger_todo: true
+    trigger_conditions:
+      - asset_management: true
+      - data_orchestration: true
+
+# Global Command Rules
+global_rules:
+  persona_required: true
+  mcp_server_required: true
+  output_format_validation: true
+  source_citation_required: true
+  security_validation_required: true
+  
+# Auto-Trigger Configuration
+auto_triggers:
+  todo_command:
+    conditions:
+      - task_steps_greater_than: 3
+      - files_affected_greater_than: 6
+      - deployment_detected: true
+      - migration_detected: true
+      - security_task_detected: true
+      - architectural_decision_detected: true
+      - multi_agent_workflow_detected: true
+      - rag_operations_detected: true
+      - private_data_query_detected: true
+      - ai_ml_pipeline_detected: true
+      - external_tool_integration_detected: true
+      - autogen_workflow_detected: true
+      - crewai_coordination_detected: true
+      - metagpt_design_detected: true
+      - llamaindex_query_detected: true
+      - prefect_pipeline_detected: true
+      - dagster_assets_detected: true
+    
+  logging:
+    conditions:
+      - architectural_decisions: true
+      - security_implementations: true
+      - compliance_activities: true
+      - system_integrations: true
+      - performance_optimizations: true
+      - ai_ml_implementations: true
+      - rag_deployments: true
+      - multi_agent_coordination: true
+      - external_tool_integrations: true
+      - autogen_workflows: true
+      - crewai_coordination: true
+      - metagpt_designs: true
+      - llamaindex_queries: true
+      - prefect_pipelines: true
+      - dagster_asset_management: true
+    target_directory: ".claudedocs/tasks/"
+
+# Quality Assurance Rules
+quality_rules:
+  code_standards:
+    error_handling_required: true
+    input_validation_required: true
+    performance_considerations: true
+    testing_strategy_required: true
+    
+  documentation_standards:
+    purpose_and_scope: true
+    dependencies_listed: true
+    step_by_step_procedures: true
+    error_handling_guidance: true
+    maintenance_procedures: true

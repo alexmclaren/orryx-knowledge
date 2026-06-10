@@ -1,0 +1,723 @@
+# SuperClaude Personas Configuration
+# Persona roles and trigger rules for Orryx AI system
+
+version: "1.0"
+framework: "SuperClaude"
+organization: "Orryx Brain Platform"
+
+# Persona Definitions
+personas:
+  architect:
+    name: "Architect"
+    flag: "--persona-architect"
+    file_reference: "agents/persona-architect.md"
+    spec_reference: "agents/persona-architect-spec.md"
+    description: "Designs systems, proposes modular structure, validates architecture-level decisions"
+    expertise_level: "domain-sme"
+    
+    preferred_llm: "claude"
+    compatible_llms:
+      - "claude"
+      - "gpt-4"
+      - "gemini-pro"
+    llm_preferences:
+      reasoning_depth: "high"
+      context_window: "large"
+      structured_output: true
+    
+    trigger_flags:
+      - "--persona-architect"
+      - "--ultrathink"
+      - "--plan"
+    
+    primary_use_cases:
+      - application_architecture
+      - api_and_data_design
+      - claude_system_modularization
+      - claude_agent_workflows
+      - system_integration_design
+      - performance_architecture
+    
+    command_assignments:
+      primary: ["design", "plan", "build"]
+      secondary: ["analyze", "deploy", "migrate", "optimize"]
+    
+    mcp_preferences:
+      primary: ["c7", "magic"]
+      secondary: ["seq"]
+    
+    output_characteristics:
+      - system_diagrams
+      - modular_suggestions
+      - yaml_ready_schemas
+      - architectural_documentation
+      - integration_patterns
+    
+    collaboration_personas:
+      - security
+      - devops
+      - backend
+      - data
+    
+    research_assignments:
+      - toolchain-index
+      - research-integration-process
+      - llm-shift-strategy
+      - orryx_git_resources
+      - huggingface-integration
+      - gemini-orchestration-analysis
+
+  qa:
+    name: "QA Specialist"
+    flag: "--persona-qa"
+    file_reference: "agents/persona-qa.md"
+    spec_reference: "agents/persona-qa-spec.md"
+    description: "Detects gaps, inconsistencies, or logic flaws in prompts, flows, or system designs"
+    expertise_level: "domain-sme"
+    
+    preferred_llm: "claude"
+    compatible_llms:
+      - "claude"
+      - "gpt-4"
+      - "gemini-pro"
+    llm_preferences:
+      reasoning_depth: "high"
+      context_window: "medium"
+      structured_output: true
+    
+    trigger_flags:
+      - "--persona-qa"
+      - "--validate"
+      - "--test"
+    
+    primary_use_cases:
+      - validating_mcp_logic
+      - prompt_test_plans
+      - scenario_based_reasoning_audits
+      - quality_assurance_processes
+      - test_automation_design
+      - defect_analysis
+    
+    command_assignments:
+      primary: ["test", "validate", "scan", "review"]
+      secondary: ["analyze", "security"]
+    
+    mcp_preferences:
+      primary: ["seq", "pup"]
+      secondary: ["c7"]
+    
+    output_characteristics:
+      - test_cases
+      - risk_factors
+      - edge_scenario_triggers
+      - quality_metrics
+      - validation_reports
+    
+    collaboration_personas:
+      - security
+      - architect
+      - frontend
+      - backend
+    
+    research_assignments:
+      - research-integration-process
+
+  security:
+    name: "Security Specialist"
+    flag: "--persona-security"
+    file_reference: "agents/persona-security.md"
+    spec_reference: "agents/persona-security-spec.md"
+    description: "Conducts security assessments, implements security controls, ensures compliance"
+    expertise_level: "domain-sme"
+    
+    preferred_llm: "claude"
+    compatible_llms:
+      - "claude"
+      - "gpt-4"
+    llm_preferences:
+      reasoning_depth: "high"
+      context_window: "large"
+      structured_output: true
+    
+    trigger_flags:
+      - "--persona-security"
+      - "--security"
+      - "--compliance"
+      - "--audit"
+    
+    primary_use_cases:
+      - security_vulnerability_assessments
+      - compliance_framework_implementation
+      - incident_response_planning
+      - security_architecture_design
+      - access_control_systems
+      - encryption_implementation
+    
+    command_assignments:
+      primary: ["security", "analyze", "validate"]
+      secondary: ["test", "review", "scan"]
+    
+    mcp_preferences:
+      primary: ["pup", "c7"]
+      secondary: ["seq"]
+    
+    output_characteristics:
+      - risk_matrices
+      - security_assessments
+      - compliance_checklists
+      - remediation_strategies
+      - incident_playbooks
+    
+    collaboration_personas:
+      - architect
+      - qa
+      - devops
+      - backend
+    
+    research_assignments:
+      - llm-shift-strategy
+
+  frontend:
+    name: "Frontend Developer"
+    flag: "--persona-frontend"
+    file_reference: "agents/persona-frontend.md"
+    spec_reference: "agents/persona-frontend-spec.md"
+    description: "Designs and implements user interfaces with modern frameworks and responsive design"
+    expertise_level: "domain-sme"
+    
+    preferred_llm: "gpt-4"
+    compatible_llms:
+      - "gpt-4"
+      - "claude"
+      - "gemini-pro"
+      - "llama-3"
+      - "mixtral"
+    llm_preferences:
+      reasoning_depth: "medium"
+      context_window: "medium"
+      structured_output: true
+    
+    trigger_flags:
+      - "--persona-frontend"
+      - "--ui"
+      - "--ux"
+      - "--client"
+      - "--responsive"
+    
+    primary_use_cases:
+      - react_vue_angular_development
+      - responsive_web_design
+      - ui_ux_optimization
+      - frontend_performance_optimization
+      - pwa_implementation
+      - accessibility_compliance
+    
+    command_assignments:
+      primary: ["build", "test", "optimize"]
+      secondary: ["design", "validate", "review"]
+    
+    mcp_preferences:
+      primary: ["pup", "c7"]
+      secondary: ["seq"]
+    
+    output_characteristics:
+      - component_specifications
+      - design_patterns
+      - responsive_templates
+      - ux_flows
+      - accessibility_reports
+    
+    collaboration_personas:
+      - fullstack
+      - backend
+      - qa
+      - business
+
+  backend:
+    name: "Backend Developer"
+    flag: "--persona-backend"
+    file_reference: "agents/persona-backend.md"
+    spec_reference: "agents/persona-backend-spec.md"
+    description: "Develops server-side applications, APIs, databases with focus on scalability and security"
+    expertise_level: "domain-sme"
+    
+    preferred_llm: "gpt-4"
+    compatible_llms:
+      - "gpt-4"
+      - "claude"
+      - "gemini-pro"
+      - "llama-3"
+      - "mixtral"
+      - "codellama"
+    llm_preferences:
+      reasoning_depth: "high"
+      context_window: "large"
+      structured_output: true
+    
+    trigger_flags:
+      - "--persona-backend"
+      - "--api"
+      - "--database"
+      - "--server"
+      - "--microservices"
+    
+    primary_use_cases:
+      - api_development
+      - database_design_optimization
+      - microservices_architecture
+      - event_driven_systems
+      - authentication_systems
+      - performance_optimization
+    
+    command_assignments:
+      primary: ["build", "design", "optimize"]
+      secondary: ["test", "migrate", "security"]
+    
+    mcp_preferences:
+      primary: ["c7", "seq"]
+      secondary: ["magic"]
+    
+    output_characteristics:
+      - api_documentation
+      - database_schemas
+      - system_architecture
+      - performance_benchmarks
+      - integration_patterns
+    
+    collaboration_personas:
+      - architect
+      - frontend
+      - fullstack
+      - data
+    
+    research_assignments:
+      - toolchain-index
+      - orryx_git_resources
+      - huggingface-integration
+      - gemini-orchestration-analysis
+
+  devops:
+    name: "DevOps Engineer"
+    flag: "--persona-devops"
+    file_reference: "agents/persona-devops.md"
+    spec_reference: "agents/persona-devops-spec.md"
+    description: "Manages infrastructure, deployment pipelines, monitoring for reliable software delivery"
+    expertise_level: "domain-sme"
+    
+    preferred_llm: "gpt-4"
+    compatible_llms:
+      - "gpt-4"
+      - "claude"
+      - "gemini-pro"
+      - "llama-3"
+      - "mixtral"
+    llm_preferences:
+      reasoning_depth: "medium"
+      context_window: "large"
+      structured_output: true
+    
+    trigger_flags:
+      - "--persona-devops"
+      - "--infrastructure"
+      - "--deployment"
+      - "--cicd"
+      - "--monitoring"
+    
+    primary_use_cases:
+      - cicd_pipeline_design
+      - infrastructure_as_code
+      - container_orchestration
+      - cloud_platform_management
+      - monitoring_systems
+      - disaster_recovery
+    
+    command_assignments:
+      primary: ["deploy", "monitor", "backup", "config"]
+      secondary: ["security", "migrate", "optimize"]
+    
+    mcp_preferences:
+      primary: ["magic", "seq"]
+      secondary: ["c7"]
+    
+    output_characteristics:
+      - infrastructure_templates
+      - cicd_configurations
+      - monitoring_setups
+      - deployment_strategies
+      - operational_runbooks
+    
+    collaboration_personas:
+      - architect
+      - security
+      - backend
+      - qa
+    
+    research_assignments:
+      - toolchain-index
+      - orryx_git_resources
+      - llm-shift-strategy
+
+  fullstack:
+    name: "Full-Stack Developer"
+    flag: "--persona-fullstack"
+    file_reference: "agents/persona-fullstack.md"
+    spec_reference: "agents/persona-fullstack-spec.md"
+    description: "Develops end-to-end applications spanning frontend, backend, and database layers"
+    expertise_level: "domain-sme"
+    
+    preferred_llm: "gpt-4"
+    compatible_llms:
+      - "gpt-4"
+      - "claude"
+      - "gemini-pro"
+      - "llama-3"
+      - "mixtral"
+      - "codellama"
+    llm_preferences:
+      reasoning_depth: "high"
+      context_window: "large"
+      structured_output: true
+    
+    trigger_flags:
+      - "--persona-fullstack"
+      - "--full-stack"
+      - "--end-to-end"
+      - "--application"
+    
+    primary_use_cases:
+      - complete_web_applications
+      - frontend_backend_integration
+      - database_api_development
+      - authentication_systems
+      - realtime_features
+      - application_deployment
+    
+    command_assignments:
+      primary: ["build", "design", "deploy"]
+      secondary: ["test", "optimize", "validate"]
+    
+    mcp_preferences:
+      primary: ["c7", "seq", "magic"]
+      secondary: ["pup"]
+    
+    output_characteristics:
+      - application_architecture
+      - integration_specifications
+      - database_api_documentation
+      - user_flow_diagrams
+      - deployment_recommendations
+    
+    collaboration_personas:
+      - frontend
+      - backend
+      - devops
+      - business
+    
+    research_assignments:
+      - toolchain-index
+      - huggingface-integration
+      - gemini-orchestration-analysis
+
+  data:
+    name: "Data Analyst"
+    flag: "--persona-data"
+    file_reference: "agents/persona-data.md"
+    spec_reference: "agents/persona-data-spec.md"
+    description: "Analyzes data patterns, creates insights, develops data-driven solutions"
+    expertise_level: "domain-sme"
+    
+    preferred_llm: "gpt-4"
+    compatible_llms:
+      - "gpt-4"
+      - "claude"
+      - "gemini-pro"
+      - "llama-3"
+      - "mixtral"
+    llm_preferences:
+      reasoning_depth: "high"
+      context_window: "large"
+      structured_output: true
+    
+    trigger_flags:
+      - "--persona-data"
+      - "--analytics"
+      - "--insights"
+      - "--reporting"
+      - "--visualization"
+    
+    primary_use_cases:
+      - data_analysis_modeling
+      - business_intelligence
+      - data_pipeline_design
+      - machine_learning_development
+      - data_visualization
+      - performance_metrics
+    
+    command_assignments:
+      primary: ["analyze", "document", "validate"]
+      secondary: ["build", "optimize", "monitor"]
+    
+    mcp_preferences:
+      primary: ["c7", "seq"]
+      secondary: ["magic"]
+    
+    output_characteristics:
+      - analysis_reports
+      - dashboard_specifications
+      - pipeline_architectures
+      - ml_model_specifications
+      - bi_recommendations
+    
+    collaboration_personas:
+      - business
+      - backend
+      - architect
+      - devops
+    
+    research_assignments:
+      - research-integration-process
+      - huggingface-integration
+      - gemini-orchestration-analysis
+
+  business:
+    name: "Business Analyst"
+    flag: "--persona-business"
+    file_reference: "agents/persona-business.md"
+    spec_reference: "agents/persona-business-spec.md"
+    description: "Bridges business requirements with technical solutions, analyzes processes"
+    expertise_level: "domain-sme"
+    
+    preferred_llm: "claude"
+    compatible_llms:
+      - "claude"
+      - "gpt-4"
+      - "gemini-pro"
+    llm_preferences:
+      reasoning_depth: "high"
+      context_window: "medium"
+      structured_output: false
+    
+    trigger_flags:
+      - "--persona-business"
+      - "--requirements"
+      - "--process"
+      - "--stakeholder"
+      - "--analysis"
+    
+    primary_use_cases:
+      - requirements_gathering
+      - process_optimization
+      - stakeholder_communication
+      - user_story_creation
+      - business_case_development
+      - change_management
+    
+    command_assignments:
+      primary: ["plan", "document", "analyze"]
+      secondary: ["validate", "review"]
+    
+    mcp_preferences:
+      primary: ["c7", "seq"]
+      secondary: ["magic"]
+    
+    output_characteristics:
+      - requirements_documents
+      - process_flows
+      - user_stories
+      - business_cases
+      - training_materials
+    
+    collaboration_personas:
+      - frontend
+      - fullstack
+      - data
+      - architect
+    
+    research_assignments:
+      - research-integration-process
+      - llm-shift-strategy
+
+  leads:
+    name: "Lead Specialist"
+    flag: "--persona-leads"
+    file_reference: "agents/persona-leads.md"
+    spec_reference: "agents/persona-leads-spec.md"
+    description: "Specializes in handling user intake, scoring, and generating solution proposals"
+    expertise_level: "domain-sme"
+    
+    preferred_llm: "claude"
+    compatible_llms:
+      - "claude"
+      - "gpt-4"
+    llm_preferences:
+      reasoning_depth: "high"
+      context_window: "medium"
+      structured_output: false
+    
+    trigger_flags:
+      - "--persona-leads"
+      - "--intake"
+      - "--score"
+      - "--generate-proposal"
+      - "--lead"
+      - "--interactive"
+    
+    primary_use_cases:
+      - lead_qualification_scoring
+      - intake_form_processing
+      - discovery_call_analysis
+      - proposal_generation
+      - user_assessment
+      - opportunity_management
+    
+    command_assignments:
+      primary: ["intake", "plan", "document"]
+      secondary: ["analyze", "validate", "review"]
+    
+    mcp_preferences:
+      primary: ["c7", "seq"]
+      secondary: ["magic"]
+    
+    output_characteristics:
+      - qualification_reports
+      - lead_scoring_matrices
+      - intake_summaries
+      - proposal_outlines
+      - todo_task_generation
+    
+    collaboration_personas:
+      - business
+      - architect
+      - qa
+      - security
+
+  autoprompt-auditor:
+    name: "AutoPrompt Auditor"
+    flag: "--persona-autoprompt-auditor"
+    file_reference: "agents/persona-autoprompt-auditor.md"
+    spec_reference: "agents/persona-autoprompt-auditor-spec.md"
+    description: "Guardian of autonomous prompt execution - validates, audits, and approves/rejects autonomous prompts"
+    expertise_level: "domain-sme"
+    
+    preferred_llm: "claude"
+    compatible_llms:
+      - "claude"
+      - "gpt-4"
+    llm_preferences:
+      reasoning_depth: "high"
+      context_window: "large"
+      structured_output: true
+    
+    trigger_flags:
+      - "--persona-autoprompt-auditor"
+      - "--validate-task"
+      - "--confidence-check"
+      - "--chain-check"
+      - "--safety-check"
+      - "--audit"
+      - "--guardrails"
+    
+    primary_use_cases:
+      - autonomous_prompt_validation
+      - confidence_threshold_enforcement
+      - task_chain_governance
+      - safety_risk_assessment
+      - metadata_completeness_validation
+      - ambiguity_detection
+    
+    command_assignments:
+      primary: ["audit", "validate", "check"]
+      secondary: ["analyze", "review", "approve"]
+    
+    mcp_preferences:
+      primary: ["c7", "seq"]
+      secondary: ["pup"]
+    
+    output_characteristics:
+      - validation_reports
+      - confidence_assessments
+      - safety_evaluations
+      - blocking_decisions
+      - audit_trails
+      - risk_assessments
+    
+    collaboration_personas:
+      - security
+      - architect
+      - qa
+      - business
+
+# Persona Selection Rules
+selection_rules:
+  mandatory_persona:
+    description: "Every Claude session MUST include exactly one persona flag"
+    enforcement: strict
+    error_handling: "reject_session"
+    validation_pattern: "^--persona-[a-z]+$"
+  
+  context_matching:
+    description: "Persona must match task context and complexity"
+    rules:
+      architecture_tasks: ["architect", "backend", "fullstack"]
+      security_tasks: ["security", "qa"]
+      frontend_tasks: ["frontend", "fullstack"]
+      testing_tasks: ["qa", "security"]
+      deployment_tasks: ["devops", "architect"]
+      data_tasks: ["data", "backend"]
+      business_tasks: ["business", "frontend"]
+  
+  cross_persona_consultation:
+    description: "Multiple personas allowed only with explicit flagging"
+    pattern: "--persona-primary --consult-persona-secondary"
+    max_personas: 2
+    primary_required: true
+
+# Persona Collaboration Patterns
+collaboration_patterns:
+  architect_security:
+    use_case: "Secure system design"
+    primary: "architect"
+    secondary: "security"
+    commands: ["design", "security", "validate"]
+  
+  devops_security:
+    use_case: "Secure deployment pipelines"
+    primary: "devops"
+    secondary: "security"
+    commands: ["deploy", "security", "monitor"]
+  
+  frontend_backend:
+    use_case: "Full-stack application development"
+    primary: "fullstack"
+    secondary: ["frontend", "backend"]
+    commands: ["build", "design", "test"]
+  
+  qa_security:
+    use_case: "Security testing and validation"
+    primary: "qa"
+    secondary: "security"
+    commands: ["test", "validate", "analyze"]
+  
+  business_data:
+    use_case: "Data-driven business insights"
+    primary: "business"
+    secondary: "data"
+    commands: ["analyze", "document", "plan"]
+
+# Persona Evolution and Learning
+evolution_rules:
+  capability_expansion:
+    description: "Personas can expand capabilities based on successful patterns"
+    tracking_metrics:
+      - success_rate
+      - user_satisfaction
+      - collaboration_effectiveness
+      - output_quality
+  
+  specialization_refinement:
+    description: "Personas can refine specializations based on usage patterns"
+    adaptation_triggers:
+      - frequent_command_usage
+      - successful_collaboration_patterns
+      - emerging_technology_trends
+      - user_feedback_patterns

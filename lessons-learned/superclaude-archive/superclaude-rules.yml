@@ -1,0 +1,328 @@
+# SuperClaude Rules Configuration
+# Governance, fallback, and formatting rules for Orryx AI system
+
+version: "1.0"
+framework: "SuperClaude"
+organization: "Orryx AI Consultancy"
+
+# Core Governance Rules
+governance:
+  language_requirements:
+    prohibited_words:
+      - "optimal"
+      - "guaranteed" 
+      - "perfect"
+      - "best"
+      - "always"
+      - "never"
+    
+    required_qualifiers:
+      - "may"
+      - "typically"
+      - "documented"
+      - "generally"
+      - "often"
+      - "usually"
+      - "potentially"
+      - "commonly"
+    
+    citation_requirements:
+      context7_required: true
+      source_verification: true
+      external_reference_citation: "mandatory"
+      pattern_reference_citation: "mandatory"
+    
+    anti_hallucination:
+      speculation_forbidden: true
+      evidence_based_only: true
+      source_citation_mandatory: true
+      verification_required: true
+
+  communication_standards:
+    output_formats:
+      allowed: ["markdown", "yaml", "json"]
+      forbidden: ["plain_text", "html", "xml"]
+    
+    code_blocks:
+      language_specification_required: true
+      syntax_highlighting: true
+      proper_indentation: true
+      error_handling_included: true
+    
+    technical_recommendations:
+      source_documentation_required: true
+      step_by_step_procedures: true
+      error_handling_guidance: true
+      rollback_procedures: true
+
+# Session Validation Rules
+session_validation:
+  mandatory_components:
+    persona_flag:
+      required: true
+      pattern: "^--persona-[a-z]+$"
+      enforcement: "strict"
+      error_action: "reject_session"
+    
+    mcp_server_flag:
+      required: true
+      minimum_count: 1
+      valid_flags: ["--c7", "--seq", "--magic", "--pup"]
+      enforcement: "strict"
+      error_action: "reject_session"
+    
+    context_loading:
+      seed_document_required: true
+      claude_md_required: true
+      yml_configs_required: true
+      validation_checkpoint: "session_start"
+
+  session_workflow:
+    initialization:
+      - load_seed_document
+      - load_claude_md
+      - load_yml_configurations
+      - validate_persona_assignment
+      - validate_mcp_server_selection
+      - validate_task_context_match
+    
+    execution:
+      - classify_task_type
+      - apply_persona_rules
+      - activate_mcp_servers
+      - enforce_output_format
+      - validate_security_requirements
+      - trigger_automation_rules
+    
+    completion:
+      - validate_output_compliance
+      - trigger_todo_if_required
+      - log_architectural_decisions
+      - generate_audit_trail
+
+# Auto-Trigger Automation Rules
+automation:
+  todo_command_triggers:
+    conditions:
+      task_complexity:
+        steps_greater_than: 3
+        files_affected_greater_than: 6
+        architectural_decision_required: true
+      
+      task_types:
+        deployment_detected: true
+        migration_detected: true
+        security_implementation: true
+        compliance_activity: true
+        system_integration: true
+      
+      risk_factors:
+        production_environment: true
+        data_modification: true
+        security_controls_change: true
+        infrastructure_modification: true
+    
+    execution_rules:
+      auto_trigger_delay: "immediate"
+      persona_inheritance: true
+      mcp_server_inheritance: true
+      priority_assignment: "high"
+
+  logging_triggers:
+    architectural_decisions:
+      target_directory: ".claudedocs/tasks/"
+      filename_pattern: "architecture-{timestamp}-{persona}.md"
+      required_fields:
+        - decision_rationale
+        - alternatives_considered
+        - impact_assessment
+        - rollback_plan
+    
+    security_implementations:
+      target_directory: ".claudedocs/tasks/"
+      filename_pattern: "security-{timestamp}-{type}.md"
+      required_fields:
+        - security_controls_implemented
+        - compliance_validation
+        - risk_assessment
+        - monitoring_requirements
+    
+    compliance_activities:
+      target_directory: ".claudedocs/tasks/"
+      filename_pattern: "compliance-{timestamp}-{framework}.md"
+      required_fields:
+        - compliance_framework
+        - requirements_addressed
+        - evidence_collected
+        - audit_trail
+
+# Quality Assurance Rules
+quality_assurance:
+  code_standards:
+    error_handling:
+      required: true
+      try_catch_blocks: "mandatory"
+      error_logging: "required"
+      graceful_degradation: "preferred"
+    
+    input_validation:
+      required: true
+      sanitization: "mandatory"
+      type_checking: "required"
+      boundary_validation: "required"
+    
+    performance_considerations:
+      required: true
+      optimization_notes: "recommended"
+      resource_usage_awareness: "required"
+      scalability_considerations: "preferred"
+    
+    testing_strategy:
+      required: true
+      unit_tests: "recommended"
+      integration_tests: "required"
+      security_tests: "mandatory"
+
+  documentation_standards:
+    required_sections:
+      - purpose_and_scope
+      - dependencies_and_prerequisites
+      - step_by_step_procedures
+      - error_handling_guidance
+      - maintenance_procedures
+      - security_considerations
+    
+    formatting_requirements:
+      markdown_headers: "standardized"
+      code_syntax_highlighting: "required"
+      cross_references: "encouraged"
+      version_control: "mandatory"
+
+# Security and Compliance Rules
+security:
+  security_first_approach:
+    mandatory_considerations:
+      - security_impact_assessment
+      - compliance_requirement_validation
+      - data_protection_analysis
+      - access_control_review
+      - encryption_requirements
+    
+    prohibited_actions:
+      - credential_exposure
+      - security_bypass
+      - compliance_violation
+      - sensitive_data_logging
+      - unauthorized_access_enablement
+    
+    required_validations:
+      - security_review_checkpoint
+      - compliance_validation_checkpoint
+      - data_protection_checkpoint
+      - access_control_checkpoint
+
+  compliance_frameworks:
+    gdpr:
+      data_protection_required: true
+      privacy_impact_assessment: true
+      consent_management: true
+      data_subject_rights: true
+    
+    sox:
+      financial_controls: true
+      audit_trail_required: true
+      segregation_of_duties: true
+      change_management: true
+    
+    iso27001:
+      information_security_management: true
+      risk_assessment_required: true
+      security_controls_implementation: true
+      continuous_monitoring: true
+
+# Error Handling and Fallback Rules
+error_handling:
+  session_errors:
+    invalid_persona:
+      action: "reject_session"
+      message: "Session must include exactly one valid persona flag"
+      remediation: "Add --persona-{type} flag matching task context"
+    
+    missing_mcp_server:
+      action: "reject_session"
+      message: "Session must include at least one MCP server flag"
+      remediation: "Add appropriate MCP flags: --c7, --seq, --magic, or --pup"
+    
+    context_mismatch:
+      action: "warn_and_proceed"
+      message: "Persona may not match task context optimally"
+      remediation: "Consider using different persona for better results"
+  
+  validation_errors:
+    output_format_violation:
+      action: "reject_output"
+      message: "Output must be in Markdown, YAML, or JSON format"
+      remediation: "Reformat output according to standards"
+    
+    security_violation:
+      action: "reject_output"
+      message: "Output violates security or compliance requirements"
+      remediation: "Remove sensitive data and security violations"
+    
+    quality_standard_violation:
+      action: "warn_and_flag"
+      message: "Output does not meet quality standards"
+      remediation: "Review and improve according to quality guidelines"
+
+# Escalation Procedures
+escalation:
+  critical_issues:
+    security_breach_detected:
+      immediate_action: "halt_session"
+      notification: "security_team"
+      logging: "security_incident_log"
+      follow_up: "security_review_required"
+    
+    compliance_violation:
+      immediate_action: "halt_session"
+      notification: "compliance_team"
+      logging: "compliance_incident_log"
+      follow_up: "compliance_review_required"
+    
+    system_integrity_issue:
+      immediate_action: "safe_mode"
+      notification: "technical_team"
+      logging: "system_incident_log"
+      follow_up: "technical_review_required"
+
+# Audit and Monitoring
+audit:
+  session_logging:
+    required_fields:
+      - session_id
+      - timestamp
+      - persona_used
+      - mcp_servers_activated
+      - commands_executed
+      - output_generated
+      - compliance_status
+      - security_validation_status
+    
+    retention_policy:
+      duration: "7_years"
+      encryption: "required"
+      access_control: "restricted"
+      regular_review: "quarterly"
+  
+  performance_monitoring:
+    metrics:
+      - session_success_rate
+      - output_quality_score
+      - compliance_adherence_rate
+      - security_validation_success
+      - user_satisfaction_rating
+    
+    reporting:
+      frequency: "monthly"
+      stakeholders: ["technical_team", "compliance_team", "management"]
+      format: "dashboard_and_detailed_report"

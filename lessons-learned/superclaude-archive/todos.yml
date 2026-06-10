@@ -1,0 +1,219 @@
+# Claude Auto-Task Trigger Rules
+# Automation rules for triggering /todo command and logging
+
+version: "1.0"
+framework: "SuperClaude"
+organization: "Orryx AI Consultancy"
+
+# Auto-Trigger Rules for /todo Command
+auto_trigger_rules:
+  task_complexity_triggers:
+    description: "Automatically trigger /todo when task complexity exceeds thresholds"
+    
+    step_count_trigger:
+      condition: "steps_greater_than"
+      threshold: 3
+      action: "trigger_todo_command"
+      priority: "high"
+      persona_inheritance: true
+      mcp_inheritance: true
+    
+    file_count_trigger:
+      condition: "files_affected_greater_than"
+      threshold: 6
+      action: "trigger_todo_command"
+      priority: "high"
+      persona_inheritance: true
+      mcp_inheritance: true
+    
+    architectural_decision_trigger:
+      condition: "architectural_decision_required"
+      detection_patterns:
+        - "system_design_change"
+        - "integration_pattern_modification"
+        - "data_model_alteration"
+        - "api_contract_change"
+      action: "trigger_todo_and_log"
+      priority: "high"
+      logging_required: true
+
+  task_type_triggers:
+    description: "Trigger based on specific task types"
+    
+    deployment_trigger:
+      condition: "deployment_detected"
+      detection_patterns:
+        - "production_deployment"
+        - "infrastructure_change"
+        - "service_rollout"
+        - "configuration_update"
+      commands: ["deploy", "migrate", "config"]
+      action: "trigger_todo_command"
+      priority: "critical"
+      logging_required: true
+    
+    security_trigger:
+      condition: "security_task_detected"
+      detection_patterns:
+        - "security_implementation"
+        - "vulnerability_remediation"
+        - "compliance_activity"
+        - "access_control_change"
+      commands: ["security", "analyze", "validate"]
+      action: "trigger_todo_and_log"
+      priority: "critical"
+      logging_required: true
+    
+    migration_trigger:
+      condition: "migration_detected"
+      detection_patterns:
+        - "data_migration"
+        - "system_migration"
+        - "platform_transition"
+        - "legacy_modernization"
+      commands: ["migrate", "deploy", "validate"]
+      action: "trigger_todo_and_log"
+      priority: "high"
+      logging_required: true
+
+  risk_factor_triggers:
+    description: "Trigger based on risk factors"
+    
+    production_environment_trigger:
+      condition: "production_environment_detected"
+      detection_patterns:
+        - "production_flag"
+        - "live_system_modification"
+        - "customer_facing_change"
+      action: "trigger_todo_command"
+      priority: "critical"
+      additional_validations: ["security_review", "compliance_check"]
+    
+    data_modification_trigger:
+      condition: "data_modification_detected"
+      detection_patterns:
+        - "database_schema_change"
+        - "data_transformation"
+        - "data_deletion"
+        - "data_migration"
+      action: "trigger_todo_and_log"
+      priority: "high"
+      logging_required: true
+    
+    infrastructure_modification_trigger:
+      condition: "infrastructure_change_detected"
+      detection_patterns:
+        - "server_configuration_change"
+        - "network_modification"
+        - "security_policy_update"
+        - "resource_scaling"
+      action: "trigger_todo_command"
+      priority: "high"
+      logging_required: true
+
+# Automatic Logging Rules
+logging_rules:
+  architectural_logging:
+    description: "Log architectural decisions and rationale"
+    
+    trigger_conditions:
+      - "architectural_decision_made"
+      - "system_design_change"
+      - "integration_pattern_selection"
+      - "technology_stack_decision"
+    
+    target_directory: ".claudedocs/tasks/"
+    filename_pattern: "architecture-{timestamp}-{persona}.md"
+    
+    required_content:
+      - decision_rationale
+      - alternatives_considered
+      - impact_assessment
+      - rollback_plan
+      - stakeholder_approval
+      - timeline_considerations
+
+  security_logging:
+    description: "Log security implementations and validations"
+    
+    trigger_conditions:
+      - "security_control_implemented"
+      - "vulnerability_remediated"
+      - "compliance_validation_performed"
+      - "security_audit_completed"
+    
+    target_directory: ".claudedocs/tasks/"
+    filename_pattern: "security-{timestamp}-{type}.md"
+    
+    required_content:
+      - security_controls_implemented
+      - compliance_validation
+      - risk_assessment
+      - monitoring_requirements
+      - incident_response_plan
+      - review_schedule
+
+  compliance_logging:
+    description: "Log compliance activities and audit trails"
+    
+    trigger_conditions:
+      - "compliance_activity_performed"
+      - "regulatory_requirement_addressed"
+      - "audit_evidence_collected"
+      - "policy_implementation"
+    
+    target_directory: ".claudedocs/tasks/"
+    filename_pattern: "compliance-{timestamp}-{framework}.md"
+    
+    required_content:
+      - compliance_framework
+      - requirements_addressed
+      - evidence_collected
+      - audit_trail
+      - verification_method
+      - next_review_date
+
+# Legacy Task Categories (Maintained for Compatibility)
+categories:
+  - name: Build
+    keywords: [build, scaffold, generate, synthesize]
+    requires_todo: true
+    auto_trigger: true
+
+  - name: Analyze
+    keywords: [scan, audit, review, validate]
+    requires_todo: false
+    auto_trigger: false
+
+  - name: Plan
+    keywords: [plan, architect, sequence, roadmap]
+    requires_todo: true
+    auto_trigger: true
+
+  - name: Deploy
+    keywords: [deploy, launch, migrate, push]
+    requires_todo: true
+    auto_trigger: true
+
+  - name: Secure
+    keywords: [encrypt, authenticate, restrict, protect]
+    requires_todo: true
+    auto_trigger: true
+
+# Configuration Flags
+flags:
+  allow_manual_override: true
+  auto_log_if_todo: true
+  todo_storage_path: ".claudedocs/tasks/"
+  logging_enabled: true
+  audit_trail_required: true
+  encryption_required: true
+
+# Todo Format Template
+todo_format:
+  - step: "description of the task"
+  - persona: "assigned Claude agent"
+  - flags: ["mcp", "persona", "ultrathink"]
+  - deadline: "yyyy-mm-dd or TBD"
+  - priority: "high|medium|low"
+  - logging_required: "true|false"
