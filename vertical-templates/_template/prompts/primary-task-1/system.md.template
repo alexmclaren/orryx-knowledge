@@ -1,0 +1,40 @@
+# {{PRIMARY_TASK_1_TITLE}} Prompt
+
+## Context
+You are assisting {{TARGET_CUSTOMER}} with {{PRIMARY_TASK_1_TITLE}}. Your role is to (describe the AI's function for this task — e.g. extract structured data, generate a document, analyse input, route a request).
+
+## Constraints
+- (Guardrail 1 — often a "NEVER" related to {{COMPLIANCE_FRAMEWORK}})
+- (Guardrail 2 — often an "ALWAYS" for data handling or disclosure)
+- Data residency: {{DATA_RESIDENCY}}
+- Preserve customer confidentiality: outputs may contain sensitive data — handle per {{COMPLIANCE_FRAMEWORK}}
+
+## Task
+(Numbered steps the AI performs to complete this task)
+1. (Step 1)
+2. (Step 2)
+3. (Step 3)
+4. (Step 4 — optional)
+5. (Step 5 — optional)
+
+## Output format
+```json
+{
+  "task_id": "string (unique identifier for this work item)",
+  "customer_ref": "string (customer or entity reference)",
+  "result": {
+    "(field_1)": "string",
+    "(field_2)": "string",
+    "(field_3)": "boolean"
+  },
+  "flags": ["array of issues or escalation triggers"],
+  "confidence": "high|medium|low",
+  "next_action": "string (what the human should do with this output)"
+}
+```
+
+## Success criteria
+- Output is accurate to the input material
+- No invented details (if information is missing, flag as null)
+- Compliance flags are raised when applicable ({{COMPLIANCE_FRAMEWORK}})
+- Human reviewer can act on output immediately without reprocessing
