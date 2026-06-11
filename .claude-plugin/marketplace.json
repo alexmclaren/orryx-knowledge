@@ -295,36 +295,43 @@
       "name": "orryx-accounting-mcp",
       "description": "Accounting domain MCP. Endpoints for /create-invoice, /log-time-entry, /compute-revenue, /list-outstanding-receivables, /sync-stripe-state.",
       "version": "0.1.0",
-      "source": "./plugins/mcp-servers/orryx-accounting-mcp",
+      "source": "./plugins/mcp-servers/orryx-accounting",
       "category": "mcp-servers"
     },
     {
       "name": "orryx-ai-automation-mcp",
       "description": "AI automation domain MCP. Endpoints for /run-workflow, /list-active-jobs, /log-execution-event, /compute-cost-estimate, /sync-workflow-status.",
       "version": "0.1.0",
-      "source": "./plugins/mcp-servers/orryx-ai-automation-mcp",
+      "source": "./plugins/mcp-servers/orryx-ai-automation",
       "category": "mcp-servers"
     },
     {
       "name": "orryx-hr-mcp",
       "description": "HR domain MCP. Endpoints for /get-employee-record, /list-active-projects, /log-time-entry, /compute-cost-allocation, /sync-payroll-state.",
       "version": "0.1.0",
-      "source": "./plugins/mcp-servers/orryx-hr-mcp",
+      "source": "./plugins/mcp-servers/orryx-hr",
       "category": "mcp-servers"
     },
     {
       "name": "orryx-risk-compliance-mcp",
       "description": "Risk + compliance domain MCP. Endpoints for /log-audit-event, /check-compliance-control, /compute-risk-score, /list-active-controls, /sync-vendor-status. Reference implementation lifted from the most-documented domain stub (audit Wave 0 finding).",
       "version": "0.1.0",
-      "source": "./plugins/mcp-servers/orryx-risk-compliance-mcp",
+      "source": "./plugins/mcp-servers/orryx-risk-compliance",
       "category": "mcp-servers"
     },
     {
       "name": "orryx-security-mcp",
       "description": "Security domain MCP. Endpoints for /check-vulnerability, /sync-incident-state, /log-security-event, /list-active-threats, /compute-security-score.",
       "version": "0.1.0",
-      "source": "./plugins/mcp-servers/orryx-security-mcp",
+      "source": "./plugins/mcp-servers/orryx-security",
       "category": "mcp-servers"
+    },
+    {
+      "name": "verify-agent-claims",
+      "description": "Ground-truth verification discipline for agent and subagent output. Triggers whenever integrating, acting on, or reporting a claim produced by an AI agent — a completion report, a state assessment, a justification for an action, or a 'this is safe to delete/merge/deploy' assertion. Defines claim classes, the verification move for each, and the escalation rule when verification fails. Distilled from the 2026-06 product-factory programme, where this discipline caught 10+ confident-but-wrong agent claims before they caused damage.",
+      "version": "0.1.0",
+      "source": "./plugins/foundation/verify-agent-claims",
+      "category": "foundation"
     }
   ]
 }

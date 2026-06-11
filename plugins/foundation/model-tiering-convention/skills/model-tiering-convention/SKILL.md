@@ -81,4 +81,3 @@ A typical Orryx Group session: 1 opus orchestrator + 3-5 sonnet workers + 1-2 ha
 
 - Anthropic model documentation — for capability/cost details
 - `D:\Clinical.Trials\.claude\agents\` — Triora's mature tier assignments (the canonical reference)
-- `references/triora-agent-inventory.md` — full Triora agent → tier map
