@@ -1,0 +1,247 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Legal Services Domain Entity Schema",
+  "description": "Central data model for legal services vertical. Defines Matter, Client, Attorney, and related entities.",
+  "version": "1.0.0",
+  "type": "object",
+  "definitions": {
+    "Client": {
+      "type": "object",
+      "required": ["id", "name", "type"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique client identifier in practice management system"
+        },
+        "name": {
+          "type": "string",
+          "description": "Client legal name (individual or entity)"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["individual", "sole_trader", "partnership", "company", "trust", "other"],
+          "description": "Client entity type"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "email": { "type": "string", "format": "email" },
+            "phone": { "type": "string" },
+            "address": { "type": "string" }
+          }
+        },
+        "abn_acn": {
+          "type": "string",
+          "description": "ABN (Australian Business Number) or ACN (Australian Company Number)"
+        }
+      }
+    },
+    "Attorney": {
+      "type": "object",
+      "required": ["id", "name", "role"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique attorney identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Attorney full name"
+        },
+        "role": {
+          "type": "string",
+          "enum": ["principal", "associate", "senior_associate", "paralegal", "legal_assistant"],
+          "description": "Role within firm"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "license_number": {
+          "type": "string",
+          "description": "Law Society license number (jurisdiction-specific)"
+        }
+      }
+    },
+    "Matter": {
+      "type": "object",
+      "required": ["id", "client_id", "type", "jurisdiction", "status"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique matter identifier (e.g., MAT-2026-001)"
+        },
+        "client_id": {
+          "type": "string",
+          "description": "Reference to Client.id"
+        },
+        "description": {
+          "type": "string",
+          "description": "Short description of matter (summary only, non-privileged)"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["dispute", "advisory", "transaction", "compliance", "other"],
+          "description": "Matter type"
+        },
+        "jurisdiction": {
+          "type": "string",
+          "enum": ["NSW", "VIC", "QLD", "SA", "WA", "TAS", "ACT", "NT", "Federal", "Other"],
+          "description": "Legal jurisdiction"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "on_hold", "closed"],
+          "description": "Matter status"
+        },
+        "assigned_to": {
+          "type": "string",
+          "description": "Reference to Attorney.id (primary responsibility)"
+        },
+        "opened_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date matter opened (YYYY-MM-DD)"
+        },
+        "closed_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date matter closed, if applicable"
+        },
+        "budget_hours": {
+          "type": "number",
+          "description": "Estimated billable hours for matter"
+        },
+        "key_dates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["date", "type"],
+            "properties": {
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["deadline", "hearing", "milestone", "review"],
+                "description": "Type of key date"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "conflicts_checked": {
+          "type": "boolean",
+          "description": "Whether conflict of interest check has been completed"
+        },
+        "opposing_parties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Names of external parties (opposing counsel, defendants, etc.)"
+        }
+      }
+    },
+    "TimeEntry": {
+      "type": "object",
+      "required": ["id", "matter_id", "attorney_id", "hours", "date"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique time entry identifier"
+        },
+        "matter_id": {
+          "type": "string",
+          "description": "Reference to Matter.id"
+        },
+        "attorney_id": {
+          "type": "string",
+          "description": "Reference to Attorney.id"
+        },
+        "hours": {
+          "type": "number",
+          "minimum": 0.1,
+          "description": "Billable hours (in 0.1 hour increments = 6 minutes)"
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date work performed"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of work performed (e.g., 'Legal research on retention')"
+        },
+        "rate": {
+          "type": "number",
+          "description": "Hourly billing rate (AUD) for this entry"
+        }
+      }
+    },
+    "Document": {
+      "type": "object",
+      "required": ["id", "matter_id", "type", "created_date"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique document identifier"
+        },
+        "matter_id": {
+          "type": "string",
+          "description": "Reference to Matter.id"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["retainer", "advice_letter", "contract", "pleading", "correspondence", "evidence", "other"],
+          "description": "Document type"
+        },
+        "title": {
+          "type": "string"
+        },
+        "created_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "created_by": {
+          "type": "string",
+          "description": "Reference to Attorney.id"
+        },
+        "is_privileged": {
+          "type": "boolean",
+          "description": "Whether document is subject to Legal Professional Privilege"
+        },
+        "confidentiality_level": {
+          "type": "string",
+          "enum": ["public", "internal", "confidential", "attorney_work_product"],
+          "description": "Confidentiality marking"
+        }
+      }
+    }
+  },
+  "properties": {
+    "clients": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/Client" }
+    },
+    "attorneys": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/Attorney" }
+    },
+    "matters": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/Matter" }
+    },
+    "time_entries": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/TimeEntry" }
+    },
+    "documents": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/Document" }
+    }
+  }
+}
