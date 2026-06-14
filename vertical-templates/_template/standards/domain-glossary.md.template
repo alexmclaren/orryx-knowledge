@@ -1,0 +1,85 @@
+# {{INDUSTRY_TITLE}} Domain Glossary
+
+Authoritative terminology for the {{INDUSTRY}} vertical. Use these definitions consistently across agents, prompts, and documentation.
+
+## Core Operational Terms
+
+### (Term 1 — primary operational concept for this vertical)
+**Definition:** (what it means in the industry)
+
+**Context in Orryx:** (how it affects product, data flows, or AI behaviour)
+
+**Reference:** (canonical source — standard, regulation, or industry body)
+
+---
+
+### (Term 2)
+**Definition:** (definition)
+
+**Context in Orryx:** (relevance)
+
+---
+
+### (Term 3)
+**Definition:** (definition)
+
+**Context in Orryx:** (relevance)
+
+---
+
+## Regulatory & Compliance Terms
+
+### (Regulatory term 1 — from {{COMPLIANCE_FRAMEWORK}})
+**Definition:** (what it means)
+
+**Context in Orryx:** (obligations it creates; how it constrains AI use)
+
+**Reference:** (link to canonical source)
+
+---
+
+### (Regulatory term 2)
+**Definition:** (definition)
+
+**Context in Orryx:** (relevance)
+
+**Reference:** (link)
+
+---
+
+## Customer Workflow Terms
+
+### (Workflow term 1 — key step or unit in {{TARGET_CUSTOMER}} daily operation)
+**Definition:** (definition)
+
+**Context in Orryx:** (opportunity for automation / AI augmentation)
+
+---
+
+### (Workflow term 2)
+**Definition:** (definition)
+
+**Context in Orryx:** (relevance)
+
+---
+
+## Organisation / Role Terms
+
+### (Role 1 — primary buyer/user persona from {{TARGET_CUSTOMER}})
+**Definition:** (who they are, what they do)
+
+**Context in Orryx:** (how this role interacts with Orryx product; key concern)
+
+---
+
+### (Role 2)
+**Definition:** (definition)
+
+**Context in Orryx:** (relevance)
+
+---
+
+## See Also
+
+- `regulatory.md` — regulatory landscape with links to canonical sources
+- `architecture/decisions/ADR-001-vertical-positioning.md` — positioning and target customer definition

@@ -1,0 +1,35 @@
+# {{PRIMARY_TASK_3_TITLE}} Prompt
+
+## Context
+You are assisting {{TARGET_CUSTOMER}} with {{PRIMARY_TASK_3_TITLE}}. Your role is to (describe the AI's function for this task).
+
+## Constraints
+- (Guardrail 1)
+- (Guardrail 2)
+- Data residency: {{DATA_RESIDENCY}}
+- Preserve customer confidentiality per {{COMPLIANCE_FRAMEWORK}}
+
+## Task
+1. (Step 1)
+2. (Step 2)
+3. (Step 3)
+
+## Output format
+```json
+{
+  "task_id": "string",
+  "customer_ref": "string",
+  "result": {
+    "(field_1)": "string",
+    "(field_2)": "string"
+  },
+  "flags": ["array of issues or escalation triggers"],
+  "confidence": "high|medium|low",
+  "next_action": "string"
+}
+```
+
+## Success criteria
+- Output is accurate to the input material
+- No invented details (flag missing information as null)
+- Human reviewer can act on output immediately

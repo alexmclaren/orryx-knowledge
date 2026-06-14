@@ -1,0 +1,171 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "{{INDUSTRY_TITLE}} Domain Entity Schema",
+  "description": "Central data model for {{INDUSTRY}} vertical. Defines the primary entities, their required fields, and relationships. Version this file as the model evolves.",
+  "version": "1.0.0",
+  "type": "object",
+  "definitions": {
+    "PrimaryEntity": {
+      "type": "object",
+      "description": "Rename to your vertical's core unit of work (e.g. Matter, Job, Case, Order). Fill in required fields and properties relevant to {{INDUSTRY}}.",
+      "required": ["id", "customer_id", "status"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this entity (e.g. JOB-2026-001)"
+        },
+        "customer_id": {
+          "type": "string",
+          "description": "Reference to Customer.id — who owns this work unit"
+        },
+        "description": {
+          "type": "string",
+          "description": "Short human-readable description of the work (non-sensitive summary)"
+        },
+        "type": {
+          "type": "string",
+          "description": "Category or type of work. Fill enum values with types relevant to {{INDUSTRY}}.",
+          "enum": ["type_a", "type_b", "type_c", "other"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "on_hold", "closed"],
+          "description": "Current lifecycle status"
+        },
+        "assigned_to": {
+          "type": "string",
+          "description": "Reference to Practitioner.id — person responsible"
+        },
+        "opened_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date work unit was created (YYYY-MM-DD)"
+        },
+        "closed_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date work unit was closed, if applicable"
+        },
+        "compliance_checked": {
+          "type": "boolean",
+          "description": "Whether {{COMPLIANCE_FRAMEWORK}} compliance check has been completed"
+        }
+      }
+    },
+    "Customer": {
+      "type": "object",
+      "description": "The entity that purchases or receives services — rename to match {{INDUSTRY}} terminology (e.g. Client, Patient, Repairer).",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique customer identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Customer full name or trading name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Customer classification relevant to {{INDUSTRY}} (fill enum)",
+          "enum": ["individual", "company", "other"]
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "email": { "type": "string", "format": "email" },
+            "phone": { "type": "string" },
+            "address": { "type": "string" }
+          }
+        },
+        "data_residency": {
+          "type": "string",
+          "description": "Required data residency region for this customer. Default: {{DATA_RESIDENCY}}"
+        }
+      }
+    },
+    "Practitioner": {
+      "type": "object",
+      "description": "Staff member or professional performing the work — rename to match {{INDUSTRY}} terminology (e.g. Attorney, Technician, Clinician).",
+      "required": ["id", "name", "role"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique practitioner identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name"
+        },
+        "role": {
+          "type": "string",
+          "description": "Role within organisation — fill enum for {{INDUSTRY}}",
+          "enum": ["senior", "junior", "trainee", "admin"]
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "license_number": {
+          "type": "string",
+          "description": "Professional licence or certification number required by {{REGULATORY_BODIES}}"
+        }
+      }
+    },
+    "Document": {
+      "type": "object",
+      "description": "Any document or artefact produced or consumed in the course of work.",
+      "required": ["id", "entity_id", "type", "created_date"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique document identifier"
+        },
+        "entity_id": {
+          "type": "string",
+          "description": "Reference to PrimaryEntity.id"
+        },
+        "type": {
+          "type": "string",
+          "description": "Document category — fill enum for {{INDUSTRY}}",
+          "enum": ["report", "agreement", "evidence", "correspondence", "other"]
+        },
+        "title": {
+          "type": "string"
+        },
+        "created_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "created_by": {
+          "type": "string",
+          "description": "Reference to Practitioner.id"
+        },
+        "confidentiality_level": {
+          "type": "string",
+          "description": "Confidentiality marking relevant to {{COMPLIANCE_FRAMEWORK}}",
+          "enum": ["public", "internal", "confidential", "restricted"]
+        }
+      }
+    }
+  },
+  "properties": {
+    "customers": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/Customer" }
+    },
+    "practitioners": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/Practitioner" }
+    },
+    "primary_entities": {
+      "type": "array",
+      "description": "Rename this property to match {{INDUSTRY}} terminology (e.g. matters, jobs, cases)",
+      "items": { "$ref": "#/definitions/PrimaryEntity" }
+    },
+    "documents": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/Document" }
+    }
+  }
+}
