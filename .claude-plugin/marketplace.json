@@ -5,7 +5,7 @@
     "url": "https://orryx.dev"
   },
   "metadata": {
-    "description": "Cross-cutting Claude Code plugins for the Orryx Group — foundation, methodology, orchestration, delivery, persistent-agent, vertical-template patterns. Domain plugins are currently staged here; they migrate to their owning entity repos in a follow-up rollout per `MIGRATION-TARGET.md`.",
+    "description": "Cross-cutting Claude Code plugins for the Orryx Group \u2014 foundation, methodology, orchestration, delivery, persistent-agent, vertical-template patterns. Domain plugins are currently staged here; they migrate to their owning entity repos in a follow-up rollout per `MIGRATION-TARGET.md`.",
     "version": "0.2.0",
     "homepage": "https://github.com/alexmclaren/orryx-knowledge",
     "license": "MIT"
@@ -132,7 +132,7 @@
     },
     {
       "name": "ralph-loop",
-      "description": "Ralph loop pattern for autonomous development with context engineering. Triggers on \"use ralph\", \"/ralph-loop\", \"loop until done\", \"autonomous-run this\", or any large autonomous delivery. Geoffrey-Huntley pattern — fresh context each iteration, spec drives convergence, quality gates control exit. Used in Triora for greenfield features and complex refactors.",
+      "description": "Ralph loop pattern for autonomous development with context engineering. Triggers on \"use ralph\", \"/ralph-loop\", \"loop until done\", \"autonomous-run this\", or any large autonomous delivery. Geoffrey-Huntley pattern \u2014 fresh context each iteration, spec drives convergence, quality gates control exit. Used in Triora for greenfield features and complex refactors.",
       "version": "0.1.0",
       "source": "./plugins/orchestration/ralph-loop",
       "category": "orchestration"
@@ -184,13 +184,6 @@
       "description": "Issue-to-PR workflow. Triggers on /fix-issue, \"fix bug #N\", \"address this Sentry alert\". Promoted from Triora SKILL.",
       "version": "0.1.0",
       "source": "./plugins/delivery/fix-issue",
-      "category": "delivery"
-    },
-    {
-      "name": "magic-patterns-design",
-      "description": "Magic Patterns design pipeline. Triggers on \"scaffold a new design\", \"use Magic Patterns to prototype X\", or starting a new brand/landing variant.",
-      "version": "0.1.0",
-      "source": "./plugins/delivery/magic-patterns-design",
       "category": "delivery"
     },
     {
@@ -279,7 +272,7 @@
     },
     {
       "name": "inbox-automation",
-      "description": "Gmail + Outlook365 inbox automation patterns (cleanup, sort, archive, financial-account protection). Triggers on \"clean up my inbox\", \"process emails\", \"automate email triage\", or any inbox-management ask. Lifted from claw-memory PowerShell + Node scripts. Sensitive — install only after confirming personal-automation posture and OAuth scopes.",
+      "description": "Gmail + Outlook365 inbox automation patterns (cleanup, sort, archive, financial-account protection). Triggers on \"clean up my inbox\", \"process emails\", \"automate email triage\", or any inbox-management ask. Lifted from claw-memory PowerShell + Node scripts. Sensitive \u2014 install only after confirming personal-automation posture and OAuth scopes.",
       "version": "0.1.0",
       "source": "./plugins/persistent-agent/inbox-automation",
       "category": "persistent-agent"
@@ -328,7 +321,7 @@
     },
     {
       "name": "verify-agent-claims",
-      "description": "Ground-truth verification discipline for agent and subagent output. Triggers whenever integrating, acting on, or reporting a claim produced by an AI agent — a completion report, a state assessment, a justification for an action, or a 'this is safe to delete/merge/deploy' assertion. Defines claim classes, the verification move for each, and the escalation rule when verification fails. Distilled from the 2026-06 product-factory programme, where this discipline caught 10+ confident-but-wrong agent claims before they caused damage.",
+      "description": "Ground-truth verification discipline for agent and subagent output. Triggers whenever integrating, acting on, or reporting a claim produced by an AI agent \u2014 a completion report, a state assessment, a justification for an action, or a 'this is safe to delete/merge/deploy' assertion. Defines claim classes, the verification move for each, and the escalation rule when verification fails. Distilled from the 2026-06 product-factory programme, where this discipline caught 10+ confident-but-wrong agent claims before they caused damage.",
       "version": "0.1.0",
       "source": "./plugins/foundation/verify-agent-claims",
       "category": "foundation"
